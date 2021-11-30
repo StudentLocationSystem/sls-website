@@ -35,7 +35,7 @@ class Functions{
         global $pdo;
         $array = array();
         $i = 0;
-        $aux;
+        $aux =0;
         $sql = $pdo-> prepare("SELECT * FROM aluno WHERE prioridade = :prioridade");
         $sql-> bindValue('prioridade', $prioridade);
         $sql-> execute();
