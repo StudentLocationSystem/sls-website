@@ -30,24 +30,43 @@ class User{
             alert('Usuário já existe'); window.location.href='../home.php';</script>";
         }
     }
-    public function loginUser($user, $pass){
+    public function loginUser($email, $pass){
         global $pdo;
-        $sql = $pdo->prepare("SELECT * FROM user WHERE user = :user AND pass = :pass");
-        $sql -> bindValue('user', $user);
+        $sql = $pdo->prepare("SELECT * FROM user WHERE email = :email AND pass = :pass");
+        $sql -> bindValue('email', $email);
         $sql -> bindValue('pass', md5($pass));
         $sql-> execute();
 
         if ($sql-> rowCount()>0){
         $array = $sql-> fetch();
-        $_SESSION['id_userLogged'] = $array['id'];
-         echo  "<script language='javascript' type='text/javascript'>
-        alert('Usuário Logado'); window.location.href= '../indexsis.php';</script>";
+         $_SESSION['id_userLogged'] = $array['id'];
+        
+        echo  "<script language='javascript' type='text/javascript'>
+        alert('Usuário Logado'); window.location.href= '../screens/menu/menu.php';</script>";
         }else{
         echo  "<script language='javascript' type='text/javascript'>
-        alert('Usuário ou senha errados'); window.location.href= '../login.php';</script>";
+        alert('Usuário ou senha errados'); window.location.href= '../screens/login/login.php';</script>";
         }
         }
+        public function logged($id){
+            global $pdo;
+            $array = array();
 
+            $sql = "SELECT * FROM user WHERE id = :id";
+            $sql = $pdo-> prepare($sql);
+            $sql-> bindValue('id', $id);
+            $sql-> execute();
+            if($sql-> rowCount() > 0){
+                $array = $sql-> fetch();
+            }else{
+                echo  "<script language='javascript' type='text/javascript'>
+        alert('Usuário não logado'); window.location.href='../screens/login/login.php';</script>";
+            }
+            return $array;
+        }
+        public function logout($id_user){
+            unset($_SESSION['id_userLogged']);
+        }
     public function updateUser($user, $pass, $email, $id_user){
         global $pdo;
         $passCrip = md5($pass);
@@ -63,5 +82,6 @@ class User{
         $sql -> bindValue('id', $id_user);
         $sql -> execute();
     }
+    
 }
 ?>
