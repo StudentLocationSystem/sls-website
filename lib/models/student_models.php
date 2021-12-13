@@ -15,7 +15,7 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['vision'])
   $height =addslashes($_POST['height']);
   $acessibility =addslashes($_POST['acessibility']);
   $function =addslashes($_POST['function']);
-  $id_user = 1;
+  $id_user = $_SESSION['id_userLogged'];
   $id_classRoom = 2;
  
   if($function = 'cadastrar'){

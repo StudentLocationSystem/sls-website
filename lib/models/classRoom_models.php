@@ -11,6 +11,7 @@ if(isset($_POST['class']) && !empty($_POST['class']) && isset($_POST['chairLengt
   $chairWidth =$_POST['chairWidth'];
   $function =addslashes($_POST['function']);
   $id_user = $_SESSION['id_userLogged'];
+  
   if($function = 'cadastrar'){
     $u -> createClassRoom($class,  $chairLength, $chairWidth, $id_user);
     echo "<script language='javascript' type='text/javascript'>

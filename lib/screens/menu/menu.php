@@ -1,3 +1,8 @@
+<?php
+require '../../repository/connection.php';
+require '../../repository/user_repository.php';
+ require '../../models/verification.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Sistema de Mapeamentos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../components/style_header.css">
     <link rel="stylesheet" href="../components/style_form.css">
     
@@ -25,32 +31,27 @@
             <ul>
                 <li>
                     <a href="">
-                        <span class="ti-home"></span>
+                        <i class="fas fa-home"></i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <span class="ti-face-smile"></span>
+                            <i class="fas fa-list"></i>
                         <span>Salas</span>
                     </a>
                 </li>
+               
                 <li>
                     <a href="">
-                        <span class="ti-clipboard"></span>
-                        <span>Alunos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span class="ti-clipboard"></span>
+                        <i class="fas fa-map"></i>
                         <span>Mapeamentos</span>
                     </a>
                 </li>
                 
                 <li>
-                    <a href="">
-                        <span class="ti-settings"></span>
+                    <a href="../../models/logout.php">
+                        <i class="fas fa-sign-out-alt"></i>
                         <span>Sair</span>
                     </a>
                 </li>
