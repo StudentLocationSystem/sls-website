@@ -64,7 +64,7 @@
         </div>";
                 }
             } else {
-                echo "<tr><td colspan='5'><center>Nenhuma nota salva.</center></td></tr>";
+                echo "<tr><td colspan='5'><center>Nenhuma sala cadastrada.</center></td></tr>";
             }
             ?>
 
