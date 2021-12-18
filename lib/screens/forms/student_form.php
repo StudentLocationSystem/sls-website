@@ -1,6 +1,11 @@
 <?php
 include '../menu/menu.php';
+$id_classRoom = $_GET['id_classRoom'];
+
 ?>
+<head>
+<link rel="stylesheet" href="../components/style_form.css">
+</head>
 <div class="main-content">
   <main>
     <br>
@@ -38,6 +43,7 @@ include '../menu/menu.php';
           </div>      
         </div>
         <input type="hidden" value="cadastrar" name="function">
+        <input type="hidden" value="<?php echo $id_classRoom?>" name="id_classRoom">
         <br>
         <div class="input-box button">
           <input type="submit" value="Enviar">
@@ -49,3 +55,6 @@ include '../menu/menu.php';
 </div>
 </body>
 </html>
+<?php
+echo $id_classRoom;
+?>

@@ -2,6 +2,8 @@
 
 class Student{
     public function createStudent($name,  $vision, $height, $acessibility, $id_user, $id_classRoom){
+        echo $id_user;
+        echo $id_classRoom;
         if($acessibility == 1){
             $priority =1;
         }elseif ($vision == 1 && $height == 1) {
@@ -28,7 +30,7 @@ class Student{
     }
     public function deleteStudent($id){
         global $pdo;
-        $sql = $pdo-> prepare("DELETE FROM classRoom WHERE id = :id");
+        $sql = $pdo-> prepare("DELETE FROM students WHERE id = :id");
         $sql -> bindValue('id', $id);
         $sql -> execute();
     }
