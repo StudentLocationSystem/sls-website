@@ -10,18 +10,20 @@ if(isset($_POST['class']) && !empty($_POST['class']) && isset($_POST['chairLengt
   $chairWidth =$_POST['chairWidth'];
   $function =addslashes($_POST['function']);
   $id_user = $_SESSION['id_userLogged'];
-  if($function = 'cadastrar'){
+  echo $function;
+  if($function == 'cadastrar'){
     $u -> createClassRoom($class,  $chairLength, $chairWidth, $id_user);
     echo "<script language='javascript' type='text/javascript'>
         alert('Dados Cadastrados'); window.location.href='../screens/forms/classRoom_form.php';</script>";
-  }else if($function = 'editar'){
-    $id_classRoom = $_GET['id_classRoom'];
+  }else if($function == 'editar'){
+    $id_classRoom = $_POST['id_classRoom'];
     $u -> updateClassRoom( $id_classRoom, $class,$chairLength,$chairWidth, $id_user);
+    echo "<script language='javascript' type='text/javascript'>
+        alert('Dados Atualizados'); window.location.href='../screens/forms/classRoom_form.php';</script>";
   }
 
 
 }else if(isset($_GET['id_classRoom']) && !empty($_GET['id_classRoom'])){
-  echo 'entrou';
   $id_classRoom = $_GET['id_classRoom'];
   $u -> deleteClassRoom($id_classRoom);
   echo "<script language='javascript' type='text/javascript'>

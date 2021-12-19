@@ -55,6 +55,3 @@ $id_classRoom = $_GET['id_classRoom'];
 </div>
 </body>
 </html>
-<?php
-echo $id_classRoom;
-?>

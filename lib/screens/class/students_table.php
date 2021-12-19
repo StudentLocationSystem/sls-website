@@ -30,7 +30,7 @@ include '../menu/menu.php';
         <section class="recent">
             <div class="activity-grid">
                 <div class="activity-card">
-                    <h3>Alunos da Sala:</h3>
+                    <h3>Lista de alunos</h3>
                     <div class="table-responsive">
                         <table>
                             <thead>
@@ -60,6 +60,7 @@ include '../menu/menu.php';
                                             <td><?php echo $row['class']; ?></td>
                                             <td>
                                               <a href="../../models/student_models.php?id_student=<?php echo $row['id']?>">Deletar</a>
+                                              <a href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
                                             </td>
 
                                         </tr>

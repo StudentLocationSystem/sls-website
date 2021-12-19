@@ -12,13 +12,15 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['vision'])
   $function =addslashes($_POST['function']);
   $id_user = $_SESSION['id_userLogged'];
   $id_classRoom = addslashes($_POST['id_classRoom']);
-  if($function = 'cadastrar'){
-    $u -> createStudent($name,  $vision, $height, $acessibility, $id_user, $id_classRoom);
+  if($function == 'cadastrar'){
+   $u -> createStudent($name,  $vision, $height, $acessibility, $id_user, $id_classRoom);
     echo "<script language='javascript' type='text/javascript'>
         alert('Dados Cadastrados'); window.location.href='../screens/forms/student_form.php?id_classRoom=".$id_classRoom."';</script>";
-  }else if($function = 'editar'){
-    $id_student = $_GET['id_student'];
-    $u -> updateStudent($id_student, $name,  $vision, $height, $acessibility, $prority, $id_user, $id_classRoom);
+  }else if($function == 'editar'){
+    $id_student = $_POST['id_student'];
+    $u -> updateStudent($id_student, $name,  $vision, $height, $acessibility, $id_user, $id_classRoom);
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Dados Cadastrados'); window.location.href='../screens/class/students_table.php?id_classRoom=".$id_classRoom."';</script>";
   }
 
 

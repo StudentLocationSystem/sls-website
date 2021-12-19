@@ -16,8 +16,12 @@ class ClassRoom {
         $sql-> execute();
     }
     
-    public function deleteClassRoom($id){
+    public function deleteClassRoom($classStudentFK){
         global $pdo;
+        $sql = $pdo-> prepare("DELETE FROM students WHERE classStudentFK = :classStudentFK");
+        $sql -> bindValue('classStudentFK', $classStudentFK);
+        $sql -> execute();
+        $id = $classStudentFK;
         $sql = $pdo-> prepare("DELETE FROM classRoom WHERE id = :id");
         $sql -> bindValue('id', $id);
         $sql -> execute();

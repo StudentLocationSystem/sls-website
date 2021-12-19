@@ -16,31 +16,11 @@ include '../menu/menu.php'; ?>
     <div class="main-content">
         <div class="container">
             <div class="row">
-                <!--         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-blue order-card" style="background: blue;">
-                <div class="card-block">
-                    <h2 class="m-b-20">nome da sala</h2>
-                    <h2 class="text-right f-right">
-                        <a class="button-card">
-                            <div class="tooltip"><i class="fas fa-pen"></i>
-                                <span class="tooltiptext">Editar</span>
-                            </div>
-                        </a>
-                        <a class="button-card">
-                            <div class="tooltip"><i class="fas fa-trash"></i>
-                                <span class="tooltiptext">Excluir</span>
-                            </div>
-                        </a>
-                        
-                    </h2>
-                    <p class="m-b-0">486 alunos<span class="f-right"></span></p>
-                </div>
-            </div>
-        </div> -->
-
                 <?php
                 global $pdo;
-                $sql = $pdo->prepare("SELECT * FROM classroom");
+                $userFK = $_SESSION['id_userLogged'];
+                $sql = $pdo->prepare("SELECT * FROM classroom WHERE userFK = :userFK");
+                $sql -> bindValue('userFK', $userFK);
                 $sql->execute();
 
                 if ($sql->rowCount() > 0) {
@@ -53,12 +33,12 @@ include '../menu/menu.php'; ?>
                 <div class='card-block'>
                     <h1 class='m-b-20 title' title='" . $row['class'] . "'>" . $row['class'] . "</h1>
                     <h2 class='text-right f-right'>
-                    <a class='button-card' href='../forms/student_form.php?id_classRoom=" .$row['id']. "'>
+                    <a class='button-card' href='../forms/student_form.php?id_classRoom=" . $row['id'] . "'>
                     <div class='tooltip'><i class='fas fa-user-plus'></i>
                         <span class='tooltiptext'>Cadastrar Aluno</span>
                     </div>
                 </a>
-                        <a class='button-card'>
+                        <a class='button-card' href='../forms/classRoom_update_form.php?id_classRoom=" . $row['id'] . "'>
                             <div class='tooltip'><i class='fas fa-pen'></i>
                                 <span class='tooltiptext'>Editar</span>
                             </div>
