@@ -73,7 +73,7 @@ label{
   margin: auto;
   max-width: 600px;
   width: 100%;
-  background: #232323;
+  background: #ffffff;
   padding: 34px;
   border-radius: 6px;
 }
@@ -179,6 +179,7 @@ form h3{
 .input-box.button input:hover, .input-box-class.button input:hover{
   background: #0e4bf1;
 }
+
 form .text h3{
  color: #333;
  width: 100%;
