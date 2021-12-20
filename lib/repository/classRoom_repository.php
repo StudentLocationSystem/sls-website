@@ -2,10 +2,10 @@
 class ClassRoom {
     public function createClassRoom($class,  $chairLength, $chairWidth, $id_user){
         $colorHex = sprintf('#%06x', mt_rand(0xDDDDDD, 0xFFFFFF));
-        
+        $classSize = $chairLength * $chairWidth;
         global $pdo;
-        $sql = $pdo-> prepare("INSERT INTO classRoom (class, chairLength, chairWidth, userFK, colorHex)
-                               VALUES ( '$class', '$chairLength', '$chairWidth', '$id_user', '$colorHex')");
+        $sql = $pdo-> prepare("INSERT INTO classRoom (class, chairLength, chairWidth, classSize, userFK, colorHex)
+                               VALUES ( '$class', '$chairLength', '$chairWidth', '$classSize', '$id_user', '$colorHex')");
         $sql-> execute();
     }
     public function updateClassRoom($id, $class,  $chairLength, $chairWidth,$id_user){

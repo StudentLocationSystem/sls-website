@@ -59,7 +59,7 @@ include '../menu/menu.php';
                                             <td><?php echo $row['priority']; ?></td>
                                             <td><?php echo $row['class']; ?></td>
                                             <td>
-                                              <a href="../../models/student_models.php?id_student=<?php echo $row['id']?>">Deletar</a>
+                                              <a href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Deletar</a>
                                               <a href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
                                             </td>
 
