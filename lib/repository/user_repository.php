@@ -40,7 +40,6 @@ class User{
         if ($sql-> rowCount()>0){
         $array = $sql-> fetch();
          $_SESSION['id_userLogged'] = $array['id'];
-        
         echo  "<script language='javascript' type='text/javascript'>
         alert('Usuário Logado'); window.location.href= '../screens/menu/menu.php';</script>";
         }else{

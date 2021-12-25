@@ -1,7 +1,10 @@
 <?php
 require_once '../../repository/connection.php';
 include '../menu/menu.php';
+require '../../repository/map_repository.php';
+$u = new Map();
 
+$sql = $u-> toString($_SESSION['id_userLogged']);
 
 ?>
 
@@ -30,43 +33,36 @@ include '../menu/menu.php';
         <section class="recent">
             <div class="activity-grid">
                 <div class="activity-card">
-                    <h3>Lista de alunos</h3>
+                    <h3>Lista de Mapeamentos</h3>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome</th>
-                                    <th>Prioridade</th>
                                     <th>Sala</th>
+                                    <th>Alunos</th>
                                     <th>Ações</th>
+                             
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $classStudentFK = $_GET['id_classRoom'];
-                                global $pdo;
-                                $sql = $pdo->prepare("SELECT students.id, students.student, students.priority, classroom.class FROM students JOIN classroom ON classroom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK");
-                                $sql->bindValue('classStudentFK', $classStudentFK);
-
-                                $sql->execute();
-
                                 if ($sql->rowCount() > 0) {
                                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) { ?>
                                         <tr>
-                                            <td> <?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['student']; ?></td>
-                                            <td><?php echo $row['priority']; ?></td>
-                                            <td><?php echo $row['class']; ?></td>
+                                            <td> <?php echo $row['idMap']; ?></td>
+                                            <td><?php echo $row['classMapFK']; ?></td>
+                                            <td><?php echo $row['map']; ?></td>
+                                          
                                             <td>
-                                              <a href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Deletar</a>
+                                              <a href="../../models/map_models.php?idMap=<?php echo $row['idMap'];?>">Deletar</a>
                                               <a href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
                                             </td>
 
                                         </tr>
                                 <?php }
                                 } else {
-                                    echo "<tr><td colspan='5'><center>Nenhuma aluno cadastrado.</center></td></tr>";
+                                    echo "<tr><td colspan='5'><center>Nenhuma mapa cadastrado.</center></td></tr>";
                                 } ?>
                             </tbody>
                         </table>
