@@ -9,8 +9,9 @@ class ClassRoom {
         $sql-> execute();
     }
     public function updateClassRoom($id, $class,  $chairLength, $chairWidth,$id_user){
+        $classSize = $chairLength * $chairWidth;
         global $pdo;
-        $sql = $pdo-> prepare("UPDATE classRoom SET id = '$id', class = '$class', chairLength = '$chairLength', chairWidth = '$chairWidth', userFK = '$id_user' 
+        $sql = $pdo-> prepare("UPDATE classRoom SET id = '$id', class = '$class', chairLength = '$chairLength', chairWidth = '$chairWidth', classSize = '$classSize', userFK = '$id_user' 
         WHERE id = :id");
         $sql -> bindValue('id', $id);
         $sql-> execute();

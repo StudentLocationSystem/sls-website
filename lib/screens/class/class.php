@@ -1,5 +1,6 @@
 <?php require_once '../../repository/connection.php';
-include '../menu/menu.php'; ?>
+include '../menu/menu.php'; 
+?>
 
 <head>
     <title>Cards Demo - Student Location System</title>
@@ -20,7 +21,7 @@ include '../menu/menu.php'; ?>
                 global $pdo;
                 $userFK = $_SESSION['id_userLogged'];
                 $sql = $pdo->prepare("SELECT * FROM classroom WHERE userFK = :userFK");
-                $sql -> bindValue('userFK', $userFK);
+                $sql->bindValue('userFK', $userFK);
                 $sql->execute();
 
                 if ($sql->rowCount() > 0) {
@@ -38,6 +39,11 @@ include '../menu/menu.php'; ?>
                         <span class='tooltiptext'>Cadastrar Aluno</span>
                     </div>
                 </a>
+                    <a class='button-card' href='../map/map_screen.php?id_classRoom=".$row['id']."'>
+                    <div class='tooltip'><i class='fas fa-map'></i>
+                    <span class='tooltiptext'>Gerar Mapeamento</span>
+                    </div>
+                    </a>
                         <a class='button-card' href='../forms/classRoom_update_form.php?id_classRoom=" . $row['id'] . "'>
                             <div class='tooltip'><i class='fas fa-pen'></i>
                                 <span class='tooltiptext'>Editar</span>
