@@ -27,10 +27,10 @@ class ClassRoom {
         $sql -> bindValue('id', $id);
         $sql -> execute();
     }
-    public function toString($id_user){
+    public function toStringClass( $id){
         global $pdo;
-        $sql = $pdo-> prepare("SELECT * FROM classRoom WHERE userFK = :id_user");
-        $sql -> bindValue('userFK', $id_user);
+        $sql = $pdo-> prepare("SELECT * FROM classRoom WHERE id = :id");
+        $sql -> bindValue('id', $id);
         $sql -> execute();
         return $sql;
     }
