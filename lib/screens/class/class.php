@@ -55,7 +55,7 @@ include '../menu/menu.php';
 
                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
                         echo "
-            <a href='students_table.php?id_classRoom=" . $row['id'] . "'>
+            <a href='students_table.php?id_classRoom=".$row['id']."'>
             <div class='sala'>
             
             <div class='card bg-c-blue order-card' style='background-color: white; box-shadow: 0px 1px 3px #232323;'>

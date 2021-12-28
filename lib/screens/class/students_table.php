@@ -9,6 +9,26 @@ include '../menu/menu.php';
     <link rel="stylesheet" href="../components/style_menu.css">
     <link rel="stylesheet" href="../components/style_form.css">
 </head>
+
+<style type="text/css">
+    .button-action{
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 20px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .edit{
+        background-color: #2a6e78;
+        /*box-shadow: 1px 2px 15px #2a6e78;*/
+    }
+    .delete{
+        background-color: #f60c49;
+        /*box-shadow: 1px 2px 15px #f60c49;*/
+    }
+</style>
+
+
 <div class="main-content">
 
     <header>
@@ -26,9 +46,6 @@ include '../menu/menu.php';
 
     <main>
 
-
-        <section class="recent">
-            <div class="activity-grid">
                 <div class="activity-card">
                     <h3>Lista de alunos</h3>
                     <div class="table-responsive">
@@ -59,8 +76,8 @@ include '../menu/menu.php';
                                             <td><?php echo $row['priority']; ?></td>
                                             <td><?php echo $row['class']; ?></td>
                                             <td>
-                                              <a href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Deletar</a>
-                                              <a href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
+                                              <a class="button-action edit" href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Deletar</a>
+                                              <a class="button-action delete" href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
                                             </td>
 
                                         </tr>
@@ -72,10 +89,6 @@ include '../menu/menu.php';
                         </table>
                     </div>
                 </div>
-
-
-            </div>
-        </section>
 
     </main>
 
