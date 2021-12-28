@@ -37,17 +37,19 @@ class Map
         return $array;
     }
 
-    public function getMap($priority1, $priority2, $priority3, $priority4, $priority5, $classStudentFK)
+    public function getMap($classStudentFK)
     {
         global $pdo;
         $array = array();
+        $u = new Map();
+        $priority1 = $u->scramble(1, $classStudentFK);
+        $priority2 = $u->scramble(2, $classStudentFK);
+        $priority3 = $u->scramble(3, $classStudentFK);
+        $priority4 = $u->scramble(4, $classStudentFK);
+        $priority5 = $u->scramble(5, $classStudentFK);
         $sizeP1 = sizeof($priority1);
-        //echo $priority1[2];
-
         $sizeP2 = sizeof($priority2);
-
         $sizeP3 = sizeof($priority3);
-
         $sizeP4 = sizeof($priority4);
         $sizeP5 = sizeof($priority5);
 
@@ -205,15 +207,6 @@ class Map
                 }
             }
         }
-/* 
-        echo $arrayClass[1], ' | ', $arrayClass[2], ' | ', $arrayClass[3], ' | ', $arrayClass[4], '<br>',
-        $arrayClass[5], ' | ', $arrayClass[6], ' | ', $arrayClass[7], ' | ', $arrayClass[8], '<br>',
-        $arrayClass[9], ' | ', $arrayClass[10], ' | ', $arrayClass[11], ' | ', $arrayClass[12], '<br>',
-        $arrayClass[13], ' | ', $arrayClass[14], ' | ', $arrayClass[15], ' | ', $arrayClass[16], '<br>'; 
-
-        echo 'Linhas ',$qtdL;
-        echo 'size', $sizeP4;
-        echo 'countp4', $countP4;  */
         return $arrayClass;
     }
 
