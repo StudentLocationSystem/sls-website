@@ -37,7 +37,10 @@
           </div>     
         </div>
         <input type="hidden" value="logar" name="function">
-        <br>
+        <div class="input-box-class">
+            <a href="register.php">Cadastre-se Agora</a>
+          </div>
+        <dix class="spacer">
         <div class="input-box-class button">
           <input type="submit" value="Enviar">
         </div>
