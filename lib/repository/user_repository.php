@@ -21,13 +21,16 @@ class User{
         if($u -> validUser($user, $pass) == true){
         global $pdo;
         $passCrip= md5($pass);
-        $sql = $pdo-> prepare("INSERT INTO user (user, pass, email, user, email)
+        $sql = $pdo-> prepare("INSERT INTO user (user, pass, email)
                                VALUES ( '$user', '$passCrip', '$email')");
+     
         $sql-> execute();
-
+        $u -> loginUser($email, $pass);
+        echo  "<script language='javascript' type='text/javascript'>
+        alert('Usuário cadastrado'); window.location.href= '../screens/menu/menu.php';</script>";   
         }else{
             echo  "<script language='javascript' type='text/javascript'>
-            alert('Usuário já existe'); window.location.href='../home.php';</script>";
+            alert('Usuário já existe'); window.location.href= '../screens/login/login.php';</script>";
         }
     }
     public function loginUser($email, $pass){
@@ -81,6 +84,8 @@ class User{
         $sql -> bindValue('id', $id_user);
         $sql -> execute();
     }
+
+ 
     
 }
 ?>
