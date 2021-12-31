@@ -9,9 +9,8 @@ include '../menu/menu.php';
 <div class="main-content">
 
     <header>
-        <div class="search-wrapper">
-            <span class="ti-search"></span>
-            <input type="search" placeholder="Search">
+        <div class="search-wrapper title">
+            <h2 style="font-size: 24px;">Página inicial</h2>
         </div>
 
         <div class="social-icons">
@@ -23,7 +22,7 @@ include '../menu/menu.php';
 
     <main>
 
-        <h2 class="dash-title">Visão geral</h2>
+        <h2 class="dash-title">Painel</h2>
 
         <div class="dash-cards">
             <div class="card-single">

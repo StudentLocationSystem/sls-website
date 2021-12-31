@@ -26,21 +26,20 @@ $classStudentFK = $_GET['id_classRoom'];
     }
 
     main h2 {
-        font-size: 36px;
+        font-size: 26px;
+        color: grey;
     }
-
+    @media (min-width: 1200px) {
     .container-card {
         background-color: #fff;
-
+        width: 100%;
     }
-
+    }
     .row-card {
         display: flex;
         width: 100%;
         border-radius: 10px;
     }
-
-
     .row-title {
         display: flex;
         margin-top: 60px;
@@ -52,7 +51,7 @@ $classStudentFK = $_GET['id_classRoom'];
         color: #fff;
         cursor: pointer;
         font-size: 18px;
-        padding: 20px 45px;
+        padding: 10px 25px;
         border-radius: 5px;
         margin-right: 10px;
     }
@@ -64,7 +63,8 @@ $classStudentFK = $_GET['id_classRoom'];
 
     .row-card .card-studants {
         margin: 20px;
-        width: 200px;
+        max-width: 200px;
+        width: 100%;
         min-height: 140px;
         background-color: #fff;
         box-shadow: 1px 1px 6px #232323;
@@ -97,18 +97,37 @@ $classStudentFK = $_GET['id_classRoom'];
         font-weight: bold;
         font-family: 'Poppins';
     }
-
-    .form-upade {
-        max-width: 450px;
-        width: 100%;
-        padding: 0 20px;
-        background-color: #fff;
-        position: fixed;
+    @media (min-width: 2600px){
+    .form-update{
         top: 70%;
         left: 70%;
+    }
+    }
+    @media (max-width: 2599px){
+    .form-update{
+        top: 60%;
+        left: 68%;
+    }
+    }
+    .form-update {
+        max-width: 450px;
+        width: 100%;
+        padding: 0 auto;
+        background-color: #fff;
+        position: fixed;
         margin: 0;
         border-radius: 5px;
-        border: 8px solid #451d5c;
+        border: 6px solid #451d5c;
+    }
+    /* Cponfiguração da animação 2600px -> Media  */
+    .form-update.open {
+        opacity: 1;
+        transition: 0.3s;
+    }
+    .form-update.close {
+        opacity: 0;
+        transition: 1s;
+        transform: translateX(2600px);
     }
 
     .title-and-button-close {
@@ -116,7 +135,7 @@ $classStudentFK = $_GET['id_classRoom'];
         justify-content: space-between;
     }
 
-    .form-upade h2 {
+    .form-update h2 {
         color: #451d5c;
         padding-left: 15px;
         padding-top: 15px;
@@ -124,10 +143,11 @@ $classStudentFK = $_GET['id_classRoom'];
     }
 
     .button-close {
-        margin: 20px 5px;
+        margin: 20px 15px;
     }
 
     .button-close button {
+        cursor: pointer;
         padding: 10px 15px;
         border-radius: 50%;
         background-color: pink;
@@ -159,13 +179,37 @@ $classStudentFK = $_GET['id_classRoom'];
         cursor: pointer;
         border-radius: 5px;
     }
-
     .button-float button {
         margin-top: 8px;
         font-size: 18px;
         color: white;
         background-color: transparent;
         border: none;
+    }
+    .button-open{
+        height: 0;
+        width: 0;
+    }
+    .button-open i{
+        height: 0;
+        width: 0;
+        color: transparent;
+    }
+    .button-open.active{
+        transition:  0.4s;
+        top:  85%;
+        left: 90%;
+        position: fixed;
+        height: 50px;
+        width: 50px;
+        background-color: #451d5c;
+        border-radius: 50%;
+    }
+    .button-open.active i{
+        transition:  0.2s;
+        color:  white;
+        margin: 14.5px;
+        font-size: 20px;
     }
 </style>
 
@@ -189,7 +233,7 @@ $classStudentFK = $_GET['id_classRoom'];
                     $map = $u->getMap($classStudentFK);
                     $string = $u->implodeArray($map);
                     $c = 1; ?>
-                    <div class="form-upade">
+                    <div class="form-update">
                         <div class="title-and-button-close">
                             <h2>Troca de carteiras</h2>
                             <div class="button-close">
@@ -209,8 +253,15 @@ $classStudentFK = $_GET['id_classRoom'];
                                     <button class="button-update">Editar</button>
                                 </div>
                             </div>
+                            </form>
                     </div>
-                    </form>
+
+                    <div class="button-open">
+                        <buton>
+                            <i class="fas fa-sync-alt"></i>
+                        </buton>
+                    </div>
+                    
                     <?php
                     for ($i = 1; $i <= $class['chairLength']; $i++) {
                         echo '<div class="row-card">';
@@ -255,6 +306,25 @@ $classStudentFK = $_GET['id_classRoom'];
                     echo "<tr><td colspan='5'><center>Nenhuma aluno cadastrado.</center></td></tr>";
                 }
         ?>
+            </div>
         </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+        $('.button-close').click(function() {
+        $('.form-update').addClass('close');
+        $('.button-open').addClass('active')
+    });
+});
+        $(document).ready(function() {
+        $('.button-open').click(function() {
+        $('.form-update').addClass('open');
+        $('.form-update').removeClass('close');
+        $('.button-open').removeClass('active');
+    });
+});
+    </script>
+
 </body>

@@ -11,12 +11,18 @@ include '../menu/menu.php';
 </head>
 
 <style type="text/css">
+    .activity-card h3{
+        padding-top: 5px;
+    }
     .button-action{
         color: #fff;
         font-size: 14px;
         padding: 6px 20px;
         border-radius: 5px;
         margin-right: 10px;
+    }
+    .return{
+        background-color: #451d5c;
     }
     .edit{
         background-color: #2a6e78;
@@ -30,9 +36,8 @@ include '../menu/menu.php';
 <div class="main-content">
 
     <header>
-        <div class="search-wrapper">
-            <span class="ti-search"></span>
-            <input type="search" placeholder="Search">
+        <div class="search-wrapper title">
+            <a class="button-action return" href="../class/class.php">Voltar</a>
         </div>
 
         <div class="social-icons">

@@ -12,12 +12,28 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
     <link rel="stylesheet" href="../components/style_menu.css">
     <link rel="stylesheet" href="../components/style_form.css">
 </head>
+
+<style>
+    .button-action{
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 20px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .edit{
+        background-color: #2a6e78;
+    }
+    .delete{
+        background-color: #f60c49;
+    }
+</style>
+
 <div class="main-content">
 
     <header>
-        <div class="search-wrapper">
-            <span class="ti-search"></span>
-            <input type="search" placeholder="Search">
+        <div class="search-wrapper title">
+            <h2 style="font-size: 22px; color: grey;">Mapeamentos</h2>
         </div>
 
         <div class="social-icons">
@@ -29,9 +45,6 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
 
     <main>
 
-
-        <section class="recent">
-            <div class="activity-grid">
                 <div class="activity-card">
                     <h3>Lista de Mapeamentos</h3>
                     <div class="table-responsive">
@@ -55,8 +68,8 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
                            
                                           
                                             <td>
-                                              <a href="../../models/map_models.php?idMap=<?php echo $row['idMap'];?>">Deletar</a>
-                                              <a href="map_screen_update.php?classStudentFK=<?php echo $row['classMapFK']?>&map=<?php echo $row['map']?>">Editar</a>
+                                              <a class="button-action edit" href="map_screen_update.php?classStudentFK=<?php echo $row['classMapFK']?>&map=<?php echo $row['map']?>">Editar</a>
+                                              <a class="button-action delete" href="../../models/map_models.php?idMap=<?php echo $row['idMap'];?>">Deletar</a>
                                             </td>
 
                                         </tr>
@@ -68,10 +81,6 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
                         </table>
                     </div>
                 </div>
-
-
-            </div>
-        </section>
 
     </main>
 
