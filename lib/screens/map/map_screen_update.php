@@ -6,8 +6,9 @@ require '../../repository/classRoom_repository.php';
 require  '../../repository/student_repository.php';
 $u = new Map();
 $g = new ClassRoom();
-$s = new Student();
-$classStudentFK = $_GET['id_classRoom'];
+$classStudentFK = $_GET['classStudentFK'];
+$string = $_GET['map'];
+$map = $u->explodeString($string);
 ?>
 
 <head>
@@ -140,6 +141,7 @@ $classStudentFK = $_GET['id_classRoom'];
         display: flex;
         padding: 10px 20px;
     }
+
     .input-float input {
         padding: 10px 10px;
         margin-bottom: 20px;
@@ -175,47 +177,41 @@ $classStudentFK = $_GET['id_classRoom'];
         <main>
             <div class="row-title">
                 <h2>Mapeamento</h2>
-                <div>
-                    <a class="button-action save" href="../../models/student_models.php?id_student=<?php echo $row['id'] ?>&id_classRoom=<?php echo $classStudentFK ?>">Salvar</a>
-                </div>
             </div>
             <div class="container-card">
-                <?php
-
-                $sql = $s->toStringStudent($classStudentFK);
-                if ($sql->rowCount() > 0) {
-                    $sql = $g->toStringClass($classStudentFK);
-                    $class = $sql->fetch(PDO::FETCH_ASSOC);
-                    $map = $u->getMap($classStudentFK);
-                    $string = $u->implodeArray($map);
-                    $c = 1; ?>
-                    <div class="form-upade">
-                        <div class="title-and-button-close">
-                            <h2>Troca de carteiras</h2>
-                            <div class="button-close">
-                                <button>X</button>
+                <div class="form-upade">
+                    <div class="title-and-button-close">
+                        <h2>Troca de carteiras</h2>
+                        <div class="button-close">
+                            <button>X</button>
+                        </div>
+                    </div>
+                    <form action="../../models/map_models.php" method="POST">
+                        <div class="row-update">
+                            <div class="input-float">
+                                <input type="number" placeholder="1 número" name="student1" />
+                                <input type="number" placeholder="2 número" name="student2" />
+                                <input type="hidden" name="map" value="<?php echo $string; ?>">
+                                <input type="hidden" name="classStudentFK" value='<?php echo $classStudentFK ?>'>
+                                <input type="hidden" name="function" value="change">
+                            </div>
+                            <div class="button-float">
+                                <button class="button-update">Editar</button>
                             </div>
                         </div>
-                        <form action="../../models/map_models.php" method="POST">
-                            <div class="row-update">
-                                <div class="input-float">
-                                    <input type="number" placeholder="1 número" name="student1" />
-                                    <input type="number" placeholder="2 número" name="student2" />
-                                    <input type="hidden" name="map"  value="<?php echo $string; ?>">
-                                    <input type="hidden" name="classStudentFK" value='<?php echo $classStudentFK ?>'>
-                                    <input type="hidden" name="function" value="change">
-                                </div>
-                                <div class="button-float">
-                                    <button class="button-update">Editar</button>
-                                </div>
-                            </div>
-                    </div>
-                    </form>
-                    <?php
+                </div>
+                </form>
+                <?php
+
+
+                if (isset($map) && !empty($map)) {
+                    $sql = $g->toStringClass($classStudentFK);
+                    $class = $sql->fetch(PDO::FETCH_ASSOC);
+                    $c = 1;
                     for ($i = 1; $i <= $class['chairLength']; $i++) {
                         echo '<div class="row-card">';
                         for ($j = 1; $j <= $class['classSize']; $j++) {
-                    ?>
+                ?>
                             <div class="card-studants">
                                 <div class="body-titles">
                                     <div id="aling-item">
@@ -234,20 +230,19 @@ $classStudentFK = $_GET['id_classRoom'];
                             }
                         }
                     } ?>
-            </div>
-            <div class="body">
-                <div class="wrapper">
                     <form action="../../models/map_models.php" method="POST">
-
-                        <?php print_r($map); ?>
                         <input type="hidden" name="function" value="cadastrar">
                         <input type="hidden" name="id_class" value="<?php echo $classStudentFK ?>">
                         <input type="hidden" name="map" value="<?php echo $string ?>">
-                        <div class="input-box button">
-                            <input type="Submit" value="Enviar">
+                        <div>
+                            <input type="submit" class="button-action save" >
                         </div>
 
                     </form>
+            </div>
+            <div class="body">
+                <div class="wrapper">
+
                 </div>
             </div>
         <?php

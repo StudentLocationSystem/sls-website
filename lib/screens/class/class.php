@@ -90,7 +90,7 @@ include '../menu/menu.php';
                         <span class='tooltiptext'>Editar</span>
                     </div>
                     </a>
-                    <ahref='../../models/classRoom_models.php?id_classRoom=" . $row['id'] . "'>
+                    <a href='../../models/classRoom_models.php?id_classRoom=" . $row['id'] . "'>
                     <div class='tooltip' style='padding: 6px 9px; border: 2px solid #f60c49; font-size: 15px;'>
                         <div class='item-action'><i class='fas fa-trash' style='color: #f60c49; '></i></div>
                         <span class='tooltiptext'>Excluir</span>

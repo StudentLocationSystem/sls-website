@@ -224,15 +224,19 @@ class Map
     }
 
     public function explodeString($string){
-        
         $arrayClass = explode(', ', $string);
-        return $arrayClass;
+        $j= 1;
+        for($i = 0; $i < count($arrayClass); $i++){
+            $map[$j] = $arrayClass[$i];
+            $j++;
+        }
+        return $map;
     }
 
     public function toString($userFK){
         global $pdo;
 
-        $sql = $pdo-> prepare("SELECT * FROM map WHERE userFK = :userFk");
+        $sql = $pdo-> prepare("SELECT map.idMap, classroom.class, map.classMapFK, map.map FROM `map` JOIN `classroom` ON classroom.id = map.classMapFK WHERE map.userFK = :userFk");
         $sql -> bindValue('userFk', $userFK);
         $sql -> execute();
 
@@ -246,4 +250,13 @@ class Map
         $sql -> execute();
     }
 
+    public function changeStudent($map, $student1, $student2){
+        $aux = $map[$student1];
+        $map[$student1] = $map[$student2];
+        $map[$student2]= $aux;
+        print_r($map);
+        return $map;
+    }
+
+ 
 }

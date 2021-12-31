@@ -40,7 +40,7 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
                                 <tr>
                                     <th>Id</th>
                                     <th>Sala</th>
-                                    <th>Alunos</th>
+                               
                                     <th>Ações</th>
                              
                                 </tr>
@@ -51,12 +51,12 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
                                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) { ?>
                                         <tr>
                                             <td> <?php echo $row['idMap']; ?></td>
-                                            <td><?php echo $row['classMapFK']; ?></td>
-                                            <td><?php echo $row['map']; ?></td>
+                                            <td><?php echo $row['class']; ?></td>
+                           
                                           
                                             <td>
                                               <a href="../../models/map_models.php?idMap=<?php echo $row['idMap'];?>">Deletar</a>
-                                              <a href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
+                                              <a href="map_screen_update.php?classStudentFK=<?php echo $row['classMapFK']?>&map=<?php echo $row['map']?>">Editar</a>
                                             </td>
 
                                         </tr>
