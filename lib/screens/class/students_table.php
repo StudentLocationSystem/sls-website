@@ -79,8 +79,8 @@ include '../menu/menu.php';
                                             <td><?php echo $row['priority']; ?></td>
                                             <td><?php echo $row['class']; ?></td>
                                             <td>
-                                              <a class="button-action edit" href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Editar</a>
-                                              <a class="button-action delete" href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Deletar</a>
+                                              <a class="button-action edit" href="../forms/student_update_form.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $row['class']?>">Editar</a>
+                                              <a class="button-action delete"  href="../../models/student_models.php?id_student=<?php echo $row['id']?>&id_classRoom=<?php echo $classStudentFK?>">Deletar</a>
                                             </td>
 
                                         </tr>

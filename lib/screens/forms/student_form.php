@@ -17,26 +17,26 @@ $id_classRoom = $_GET['id_classRoom'];
         <div class="user-details">
           <div class="input-box">
             <span class="details">Aluno</span>
-            <input type="text" placeholder="Enter your name" name="name" required>
+            <input type="text" placeholder="Enter your name" name="name" id="name" required>
           </div>
           
           <div class="input-box">
             <span class="details">É alto?</span>
-            <select  required name="height">
+            <select  required name="height" id="height" >
             <option value="1">Sim</option>
             <option value="2">Não</option>
             </select>
           </div>
           <div class="input-box">
             <span class="details">Tem problema de visão?</span>
-            <select  required name="vision">
+            <select  required name="vision" id="vision">
             <option value="1">Sim</option>
             <option value="2">Não</option>
             </select>
           </div>
           <div class="input-box">
             <span class="details">Necessita de acessibilidade?</span>
-            <select  required name="acessibility">
+            <select  required name="acessibility"  id="acessibility">
             <option value="1">Sim</option>
             <option value="2">Não</option>
             </select>
@@ -44,9 +44,10 @@ $id_classRoom = $_GET['id_classRoom'];
         </div>
         <input type="hidden" value="cadastrar" name="function">
         <input type="hidden" value="<?php echo $id_classRoom?>" name="id_classRoom">
+        <p id="alert"></p>
         <br>
         <div class="input-box button">
-          <input type="submit" value="Enviar">
+          <input type="submit" id="submit" value="Enviar">
         </div>
       </form>
   </div>
@@ -55,3 +56,46 @@ $id_classRoom = $_GET['id_classRoom'];
 </div>
 </body>
 </html>
+<script type="text/javascript"> 
+
+$(document).ready(function(){
+		$('#submit').click(function(){
+      var name = $('#name').val();
+			var acessibility = $('#acessibility').val();
+			var vision = $('#vision').val();
+			var height = $('#height').val();
+      var functions = $('#function').val();
+
+
+      $('#alert').html('');
+			if (name == '') {
+				$('#alert').html('Preencher o nome do Aluno.');
+				$('#alert').addClass("alert-danger");
+				return false;				
+			}
+			$('#alert').html('');
+			if (acessibility == '') {
+				$('#alert').html('Preencha o campo de acessibilidade.');
+				$('#alert').addClass("alert-danger");
+				return false;				
+			}
+
+			$('#alert').html('');
+			if (vision == '') {
+				$('#alert').html('Preencha o campo de visão.');
+				$('#alert').addClass("alert-danger");
+				return false;
+			}
+
+			$('#alert').html('');
+			if (height == '') {
+				$('#alert').html('Preencha o campo de altura.');
+				$('#alert').addClass("alert-danger");
+				return false;
+			}
+
+			$('#alert').html('');
+
+		});
+	});
+</script>
