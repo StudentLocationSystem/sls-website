@@ -21,7 +21,13 @@ if(isset($_POST['map']) && !empty($_POST['map'])){
         $map = $u -> explodeString($string);
         $map = $u -> changeStudent($map, $student1, $student2);
         $string = implode(', ', $map);
-        header("Location: ../screens/map/map_screen_update.php?map=".$string."&classStudentFK=".$classStudentFK);
+
+        $classStudentFK = str_replace(PHP_EOL, '', $classStudentFK);
+        $map = str_replace(PHP_EOL, '', $map);
+        $url = "../screens/map/map_screen_update.php?classStudentFK=$classStudentFK&map=$string";
+        $url = str_replace(PHP_EOL, '', $url);
+        header("Location: $url");
+
     }
 }else if(isset($_GET['idMap']) && !empty($_GET['idMap'])){
     echo 'entrou';
