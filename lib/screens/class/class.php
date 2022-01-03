@@ -27,8 +27,8 @@ include '../menu/menu.php';
     }
     .floatingButton{
         position: fixed;
-        top: 82.5%;
-        left: 77.5%;
+        top: 90.5%;
+        left: 85.5%;
         background-color: #451d5c;
         padding: 8px 30px 8px 10px;
         border-radius: 30px;
@@ -118,7 +118,7 @@ include '../menu/menu.php';
         </div>
         <div class="floatingButton">
                 <a href='../forms/classRoom_form.php'>
-                <h1 class="m-b-20"><i class="fas fa-plus" style="font-size: 20pt;"></i> Nova sala
+                <h1 class="m-b-20"><i class="fas fa-plus" style="font-size: 25px;"></i> Nova sala
                 </h1>
             </a>
             

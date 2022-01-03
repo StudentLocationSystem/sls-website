@@ -7,7 +7,6 @@ if( isset($_POST['pass'])
   $email =addslashes($_POST['email']);
   $pass = addslashes($_POST['pass']);
  $function = addslashes($_POST['function']);
-   $function;
    
   if($function == 'logar'){
     $u -> loginUser($email, $pass);
@@ -23,5 +22,3 @@ if( isset($_POST['pass'])
     $u -> createUser($user, $password, $email);
   }
 }
-
-?>

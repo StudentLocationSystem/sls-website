@@ -3,8 +3,6 @@ require '../repository/connection.php';
 require '../repository/map_repository.php';
 $u = new Map();
 if(isset($_POST['map']) && !empty($_POST['map'])){
-  
-    echo 'entrou';
     $map = addslashes($_POST['map']);   
     $function = addslashes($_POST['function']);
     $id_user = $_SESSION['id_userLogged'];
@@ -21,7 +19,6 @@ if(isset($_POST['map']) && !empty($_POST['map'])){
         $map = $u -> explodeString($string);
         $map = $u -> changeStudent($map, $student1, $student2);
         $string = implode(', ', $map);
-
         $classStudentFK = str_replace(PHP_EOL, '', $classStudentFK);
         $map = str_replace(PHP_EOL, '', $map);
         $url = "../screens/map/map_screen_update.php?classStudentFK=$classStudentFK&map=$string";
@@ -30,8 +27,6 @@ if(isset($_POST['map']) && !empty($_POST['map'])){
 
     }
 }else if(isset($_GET['idMap']) && !empty($_GET['idMap'])){
-    echo 'entrou';
-    
     $idMap = $_GET['idMap'];
     $u-> deleteMap($idMap);
 }

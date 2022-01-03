@@ -254,7 +254,7 @@ class Map
         $aux = $map[$student1];
         $map[$student1] = $map[$student2];
         $map[$student2]= $aux;
-        print_r($map);
+        
         return $map;
     }
 

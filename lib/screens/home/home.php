@@ -18,7 +18,7 @@ $countMap = $sql -> rowCount();
 
 <head>
    
-
+<link rel="stylesheet" href="../components/style_form.css">
 </head>
 <div class="main-content">
 

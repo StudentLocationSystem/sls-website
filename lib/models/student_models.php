@@ -20,7 +20,7 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['vision'])
     $id_student = $_POST['id_student'];
     $u -> updateStudent($id_student, $name,  $vision, $height, $acessibility, $id_user, $id_classRoom);
     echo "<script language='javascript' type='text/javascript'>
-    alert('Dados Cadastrados'); window.location.href='../screens/class/students_table.php?id_classRoom=".$id_classRoom."';</script>";
+    alert('Dados atualizados'); window.location.href='../screens/class/students_table.php?id_classRoom=".$id_classRoom."';</script>";
   }
 
 

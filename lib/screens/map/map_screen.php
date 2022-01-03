@@ -291,7 +291,6 @@ $classStudentFK = $_GET['id_classRoom'];
                             </div>
                     <?php $c++;
                             if ($j % $class['chairWidth'] == 0) {
-
                                 echo '</div>';
                                 break;
                             }

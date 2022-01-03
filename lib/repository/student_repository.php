@@ -2,8 +2,7 @@
 
 class Student{
     public function createStudent($name,  $vision, $height, $acessibility, $id_user, $id){
-        echo $id_user;
-        echo $id;
+      
         if($acessibility == 1){
             $priority =1;
         }elseif ($vision == 1 && $height == 1) {
@@ -20,11 +19,11 @@ class Student{
         $sql -> bindValue('id', $id);
         $sql -> execute();
         $row = $sql->fetch(PDO::FETCH_ASSOC);
-        echo $row['classSize'];
+       
       
         $sqls = $pdo-> prepare("SELECT * FROM students");
         $sqls-> execute();
-        echo $sqls -> rowCount();
+       
         if($sqls -> rowCount() >= $row['classSize']){
             echo "<script language='javascript' type='text/javascript'>
             alert('A quantidade de alunos está no máximo'); window.location.href='../screens/class/students_table.php?id_classRoom=".$id."';</script>";

@@ -224,7 +224,7 @@ $map = $u->explodeString($string);
         <main>
         <div class="body">
             <div class="container-card">
-                <div class="form-upade">
+                <div class="form-update">
                 <?php
                 if (isset($map) && !empty($map)) {
                     $sql = $g->toStringClass($classStudentFK);
