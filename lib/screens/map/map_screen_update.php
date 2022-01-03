@@ -1,7 +1,6 @@
 <?php
 include '../menu/menu.php';
 require '../../repository/map_repository.php';
-require '../../repository/connection.php';
 require '../../repository/classRoom_repository.php';
 require  '../../repository/student_repository.php';
 $u = new Map();

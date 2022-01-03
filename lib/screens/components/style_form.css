@@ -158,7 +158,7 @@ form .user-details .input-box-class{
 .input-box-class input:valid,
 .user-details 
 .input-box-class select:focus{
-  border-color: #4070f4;
+  border-color: #451d5c;
 }
 
 
@@ -177,7 +177,7 @@ form .input-box input, .user-details .input-box select{
 }
 .input-box input:focus,
 .input-box input:valid{
-  border-color: #4070f4;
+  border-color: #451d5c;
 }
 form .input-box span.details{
   display: block;
@@ -195,11 +195,11 @@ form h3{
   color: #fff;
   letter-spacing: 1px;
   border: none;
-  background: #4070f4;
+  background: #451d5c;
   cursor: pointer;
 }
 .input-box.button input:hover, .input-box-class.button input:hover{
-  background: #0e4bf1;
+  background: #451d5c;
 }
 
 form .text h3{
@@ -208,7 +208,7 @@ form .text h3{
  text-align: center;
 }
 form .text h3 a{
-  color: #4070f4;
+  color: #451d5c;
   text-decoration: none;
 }
 form .text h3 a:hover{

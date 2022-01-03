@@ -1,6 +1,5 @@
 <?php
 include '../menu/menu.php';
-include '../../repository/connection.php';
 $id_classRoom = $_GET['id_classRoom'];
 $id = $_GET['id_student'];
 $sql = $pdo->prepare("SELECT * FROM students WHERE id = :id");

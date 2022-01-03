@@ -1,4 +1,4 @@
-<?php require_once '../../repository/connection.php';
+<?php 
 include '../menu/menu.php'; 
 include '../../repository/student_repository.php';
 $u = new Student();
@@ -57,11 +57,12 @@ $u = new Student();
                 $sql = $pdo->prepare("SELECT * FROM classroom WHERE userFK = :userFK");
                 $sql->bindValue('userFK', $userFK);
                 $sql->execute();
-                $sqla = $u -> toStringAll($_SESSION['id_userLogged']);
-                $countStudents = $sqla -> rowCount();
+                
                 if ($sql->rowCount() > 0) {
 
                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                        $sqla = $u -> toStringStudent($row['id']);
+                $countStudents = $sqla -> rowCount();
                         echo "
             <a href='students_table.php?id_classRoom=".$row['id']."'>
             <div class='sala'>

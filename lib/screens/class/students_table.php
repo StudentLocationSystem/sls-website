@@ -1,5 +1,4 @@
 <?php
-require_once '../../repository/connection.php';
 include '../menu/menu.php';
 
 

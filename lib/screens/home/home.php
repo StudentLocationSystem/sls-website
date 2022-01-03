@@ -1,6 +1,5 @@
 <?php
 include '../menu/menu.php';
-require_once '../../repository/connection.php';
 require '../../repository/map_repository.php';
 require '../../repository/student_repository.php';
 require '../../repository/classRoom_repository.php';
