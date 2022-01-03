@@ -33,21 +33,15 @@ $sql = $u-> toString($_SESSION['id_userLogged']);
 
     <header>
         <div class="search-wrapper title">
-            <h2 style="font-size: 22px; color: grey;">Mapeamentos</h2>
-        </div>
-
-        <div class="social-icons">
-            <span class="ti-bell"></span>
-            <span class="ti-comment"></span>
-            <div></div>
+            <h2 style="font-size: 22px; ">Mapeamentos</h2>
         </div>
     </header>
 
     <main>
 
                 <div class="activity-card">
-                    <h3>Lista de Mapeamentos</h3>
                     <div class="table-responsive">
+                    <h3>Lista de Mapeamentos</h3>
                         <table>
                             <thead>
                                 <tr>

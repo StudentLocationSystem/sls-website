@@ -35,22 +35,16 @@ include '../menu/menu.php';
 
 <div class="main-content">
 
-    <header>
+<header>
         <div class="search-wrapper title">
-            <a class="button-action return" href="../class/class.php">Voltar</a>
-        </div>
-
-        <div class="social-icons">
-            <span class="ti-bell"></span>
-            <span class="ti-comment"></span>
-            <div></div>
+            <h2 style="font-size: 24px;">Tabela dos Alunos</h2>
         </div>
     </header>
 
     <main>
 
                 <div class="activity-card">
-                    <h3>Lista de alunos</h3>
+                  
                     <div class="table-responsive">
                         <table>
                             <thead>

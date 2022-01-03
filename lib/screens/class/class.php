@@ -39,9 +39,15 @@ include '../menu/menu.php';
     }
 </style>
 
-<body>
 
     <div class="main-content">
+ 
+    <header>
+        <div class="search-wrapper title">
+            <h2 style="font-size: 24px;">Salas</h2>
+        </div>
+    </header>
+<main>
         <div class="container">
             <div class="row">
                 <?php
@@ -117,5 +123,6 @@ include '../menu/menu.php';
             </a>
             
         </div>
+            </main>
     </div>
 </body>

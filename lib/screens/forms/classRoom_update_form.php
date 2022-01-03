@@ -9,13 +9,19 @@ $row =  $sql->fetch(PDO::FETCH_ASSOC);
 ?>
 <head>
 <link rel="stylesheet" href="../components/style_form.css">
+
+<link rel="stylesheet" href="../components/style_menu.css">
 </head>
 
  <div class="main-content">
+ <header>
+        <div class="search-wrapper title">
+            <h2 style="font-size: 24px;">Atualizar dados da Sala</h2>
+        </div>
+    </header>
   <main>
     
-  <h2 class="dash-title">Atualizar dados da Sala</h2>
-            
+
   <div class="body">
   <div class="wrapper">
     <h2>Editar a sala</h2>

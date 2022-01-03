@@ -5,11 +5,19 @@ $id_classRoom = $_GET['id_classRoom'];
 ?>
 <head>
 <link rel="stylesheet" href="../components/style_form.css">
+<link rel="stylesheet" href="../components/style_menu.css">
 </head>
+<body>
 <div class="main-content">
+<header>
+        <div class="search-wrapper title">
+            <h2 style="font-size: 24px;">Cadastrar alunos</h2>
+        </div>
+    </header>
+
   <main>
+
     <br>
-  <h2 class="dash-title">Overview</h2>
   <div class="body">
   <div class="wrapper">
     <h2>Cadastro Aluno</h2>

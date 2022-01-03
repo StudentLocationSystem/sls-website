@@ -12,12 +12,6 @@ include '../menu/menu.php';
         <div class="search-wrapper title">
             <h2 style="font-size: 24px;">Página inicial</h2>
         </div>
-
-        <div class="social-icons">
-            <span class="ti-bell"></span>
-            <span class="ti-comment"></span>
-            <div></div>
-        </div>
     </header>
 
     <main>
