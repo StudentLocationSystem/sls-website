@@ -1,6 +1,5 @@
 <?php 
 require '../repository/connection.php';
-echo $_SESSION['id_userLogged'];
 if(isset($_SESSION['id_userLogged']) || !empty($_SESSION['id_userLogged'])){
  
     unset($_SESSION['id_userLogged']);

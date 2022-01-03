@@ -27,7 +27,7 @@ class User{
         $sql-> execute();
         $u -> loginUser($email, $pass);
         echo  "<script language='javascript' type='text/javascript'>
-        alert('Usuário cadastrado'); window.location.href= '../screens/menu/menu.php';</script>";   
+        alert('Usuário cadastrado'); window.location.href= '../screens/home/home.php';</script>";   
         }else{
             echo  "<script language='javascript' type='text/javascript'>
             alert('Usuário já existe'); window.location.href= '../screens/login/login.php';</script>";

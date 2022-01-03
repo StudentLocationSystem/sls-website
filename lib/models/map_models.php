@@ -10,7 +10,7 @@ if(isset($_POST['map']) && !empty($_POST['map'])){
         $id_class = addslashes($_POST['id_class']);
         $u -> createMap($map, $id_user, $id_class);
         echo "<script language='javascript' type='text/javascript'>
-        alert('Dados Cadastrados'); window.location.href='../screens/map/map_table.php';</script>";
+        alert('Dados Cadastrados'); window.location.href='../screens/home/home.php';</script>";
     }else if($function == 'change'){
         $classStudentFK = addslashes($_POST['classStudentFK']);
         $string = addslashes($_POST['map']);
@@ -29,6 +29,8 @@ if(isset($_POST['map']) && !empty($_POST['map'])){
 }else if(isset($_GET['idMap']) && !empty($_GET['idMap'])){
     $idMap = $_GET['idMap'];
     $u-> deleteMap($idMap);
+    echo "<script language='javascript' type='text/javascript'>
+    alert('Dados Cadastrados'); window.location.href='../screens/home/home.php';</script>";
 }
 
 ?>

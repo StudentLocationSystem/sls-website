@@ -2,7 +2,7 @@
 require '../../repository/connection.php';
 if (isset($_SESSION['id_userLogged'])) {
   header('Location: ../home/home.php');
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -36,7 +36,7 @@ if (isset($_SESSION['id_userLogged'])) {
               <div class="spacer"></div>
               <div class="input-box-class">
                 <label>Senha</label>
-                <input type="password" placeholder="Digite sua senha" name="pass" id="password" required>
+                <input t ype="password" placeholder="Digite sua senha" name="pass" id="password" required>
               </div>
             </div>
          

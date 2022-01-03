@@ -103,15 +103,15 @@ $classStudentFK = $_GET['id_classRoom'];
 
     @media (min-width: 2600px) {
         .form-update {
-            top: 70%;
-            left: 70%;
+            top: 90%;
+            left: 85%;
         }
     }
 
     @media (max-width: 2599px) {
         .form-update {
-            top: 60%;
-            left: 68%;
+            top: 70%;
+            left: 75%;
         }
     }
 
@@ -338,18 +338,20 @@ $classStudentFK = $_GET['id_classRoom'];
 
         $(document).ready(function() {
             $('#submit').click(function() {
-                var student1 = parseFloat(document.getElementById("student1").value);
-                var student2 = parseFloat(document.getElementById("student2").value);
-                var classSize =parseFloat(document.getElementById("classSize").value);
-
+                var student1 = Number(document.getElementById("student1").value);
+                var student2 = Number(document.getElementById("student2").value);
+                var classSize = Number(document.getElementById("classSize").value);
+              var student11 = $('#student1').val();
+              var student22 = $('#student2').val(); 
+        
                 $('#alert').html('');
-                if(student1 == '' || student2 == ''){
+                if(student11 == '' || student22 == ''){
                 $('#alert').html('Preencher os valores.');
 				$('#alert').addClass("alert-danger");
 				return false;				
                 }
                  $('#alert').html('');
-                if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
+                if(student1 > classSize || student2 > classSize || student1 <= 0 || student2 <= 0){
                 $('#alert').html('Valor da carteira não existe');
 				$('#alert').addClass("alert-danger");
 				return false;	

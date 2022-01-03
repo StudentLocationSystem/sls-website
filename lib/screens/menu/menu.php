@@ -1,3 +1,7 @@
+<?php 
+include '../../models/verification.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
