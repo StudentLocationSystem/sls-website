@@ -36,12 +36,7 @@
                     <span>Salas</span>
                 </li>
                 </a>
-                <a href="../map/map_table.php">
-                <li>
-                        <i class="fas fa-map"></i>
-                        <span>Mapeamentos</span>
-                </li>
-                </a>
+               
                 <a href="../../models/logout.php">
                 <li>
                     <i class="fas fa-sign-out-alt"></i>

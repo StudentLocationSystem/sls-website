@@ -44,7 +44,7 @@ class User{
         $array = $sql-> fetch();
          $_SESSION['id_userLogged'] = $array['id'];
         echo  "<script language='javascript' type='text/javascript'>
-        alert('Usuário Logado'); window.location.href= '../screens/menu/menu.php';</script>";
+        alert('Usuário Logado'); window.location.href= '../screens/home/home.php';</script>";
         }else{
         echo  "<script language='javascript' type='text/javascript'>
         alert('Usuário ou senha errados'); window.location.href= '../screens/login/login.php';</script>";

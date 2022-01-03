@@ -67,6 +67,14 @@ class Student{
         $sql -> execute();
         return $sql;
     }
+
+    public function toStringAll($userFK){
+        global $pdo;
+        $sql = $pdo-> prepare("SELECT * FROM students WHERE userFK = :userFK");
+        $sql -> bindValue('userFK', $userFK);
+        $sql -> execute();
+        return $sql;
+    }
 }
 
 ?>

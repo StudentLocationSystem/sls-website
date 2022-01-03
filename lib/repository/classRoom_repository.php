@@ -33,6 +33,14 @@ class ClassRoom {
         $sql -> bindValue('id', $id);
         $sql -> execute();
         return $sql;
+
+    }
+    public function toStringAllClass( $userFK){
+        global $pdo;
+        $sql = $pdo-> prepare("SELECT * FROM classRoom WHERE userFK = :userFK");
+        $sql -> bindValue('userFK', $userFK);
+        $sql -> execute();
+        return $sql;
     }
 }
 ?>

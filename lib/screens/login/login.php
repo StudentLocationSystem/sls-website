@@ -1,7 +1,7 @@
 <?php
 require '../../repository/connection.php';
 if (isset($_SESSION['id_userLogged'])) {
-  header('Location: ../menu/menu.php');
+  header('Location: ../home/home.php');
 }
 ?>
 <!DOCTYPE html>
