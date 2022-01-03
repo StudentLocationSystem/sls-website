@@ -1,9 +1,11 @@
 <?php 
+include '../../repository/user_repository.php';
+include '../../repository/connection.php';
 include '../../models/verification.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">

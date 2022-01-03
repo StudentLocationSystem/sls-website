@@ -36,7 +36,7 @@ if (isset($_SESSION['id_userLogged'])) {
               <div class="spacer"></div>
               <div class="input-box-class">
                 <label>Senha</label>
-                <input t ype="password" placeholder="Digite sua senha" name="pass" id="password" required>
+                <input type="password" placeholder="Digite sua senha" name="pass" id="password" required>
               </div>
             </div>
          

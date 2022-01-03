@@ -18,7 +18,7 @@ if(isset($_POST['class']) && !empty($_POST['class']) && isset($_POST['chairLengt
     $id_classRoom = $_POST['id_classRoom'];
     $u -> updateClassRoom( $id_classRoom, $class,$chairLength,$chairWidth, $id_user);
     echo "<script language='javascript' type='text/javascript'>
-        alert('Dados Atualizados'); window.location.href='../screens/forms/classRoom_form.php';</script>";
+        alert('Dados Atualizados'); window.location.href='../screens/class/class.php';</script>";
   }
 
 

@@ -1,11 +1,12 @@
 <?php require_once '../../repository/connection.php';
 include '../menu/menu.php'; 
+include '../../repository/student_repository.php';
+$u = new Student();
 ?>
 
 <head>
     <title>Cards Demo - Student Location System</title>
 
-    <link rel="stylesheet" href="../components/style_menu.css">
     <link rel="stylesheet" type="text/css" href="../components/style_class.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +57,8 @@ include '../menu/menu.php';
                 $sql = $pdo->prepare("SELECT * FROM classroom WHERE userFK = :userFK");
                 $sql->bindValue('userFK', $userFK);
                 $sql->execute();
-
+                $sqla = $u -> toStringAll($_SESSION['id_userLogged']);
+                $countStudents = $sqla -> rowCount();
                 if ($sql->rowCount() > 0) {
 
                     while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
@@ -70,7 +72,7 @@ include '../menu/menu.php';
                     <div style='display: flex; justify-content: space-between;' >
                     <div style='display: block;'>
                     <h1 style='padding: 0 20px; font-size: 40px; color: grey;'  title='" . $row['class'] . "'>" . $row['class'] . "</h1>
-                    <p style='padding: 0 20px; font-size: 18px; font-weight: normal; color: #999;'  title='" . $row['class'] . "'>50 alunos</p>
+                    <p style='padding: 0 20px; font-size: 18px; font-weight: normal; color: #999;'  title='" . $row['class'] . "'>". $countStudents . "</p>
                     </div>
                     <div >
                         <h1 style='padding: 0px 20px; font-size: 60px; color: grey;'  title='" . $row['class'] . "'>" . $row['chairWidth'] . "x" . $row['chairLength'] . "</h1>

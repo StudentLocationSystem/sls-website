@@ -42,7 +42,7 @@ $countMap = $sql -> rowCount();
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="">Visualizar</a>
+                    <a href="../class/class.php">Visualizar</a>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@ $countMap = $sql -> rowCount();
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="">Visualizar</a>
+                    <a href="../class/class.php">Visualizar</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@ $countMap = $sql -> rowCount();
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="">Visualizar</a>
+                    <a href="../home/home.php">Visualizar</a>
                 </div>
             </div>
         </div>
