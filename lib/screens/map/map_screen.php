@@ -267,15 +267,15 @@ $classStudentFK = $_GET['id_classRoom'];
                                     <button class="button-update" value="Enviar" id="submit"> Enviar</button>
                                 </div>
                             </div>
-                </div>
+                                </div>
                         </form>
-                    </div>
+                   
                     <div class="button-open">
                         <buton>
                             <i class="fas fa-sync-alt"></i>
                         </buton>
                     </div>
-
+                    </div>
                     <?php
                     for ($i = 1; $i <= $class['chairLength']; $i++) {
                         echo '<div class="row-card">';
