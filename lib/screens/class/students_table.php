@@ -46,6 +46,7 @@ include '../menu/menu.php';
                 <div class="activity-card">
                   
                     <div class="table-responsive">
+                    <h3>Lista de Alunos</h3>
                         <table>
                             <thead>
                                 <tr>
