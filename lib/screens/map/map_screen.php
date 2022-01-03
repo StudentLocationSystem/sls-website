@@ -1,7 +1,6 @@
 <?php
 include '../menu/menu.php';
 require '../../repository/map_repository.php';
-require '../../repository/connection.php';
 require '../../repository/classRoom_repository.php';
 require  '../../repository/student_repository.php';
 $u = new Map();
@@ -349,15 +348,16 @@ $classStudentFK = $_GET['id_classRoom'];
                 var student1 = parseFloat(document.getElementById("student1").value);
                 var student2 = parseFloat(document.getElementById("student2").value);
                 var classSize =parseFloat(document.getElementById("classSize").value);
-
+                var student11 = $('#student1').val();
+                var student22 = $('#student2').val();
                 $('#alert').html('');
-                if(student1 == '' || student2 == ''){
+                if(student11 == '' || student22 == ''){
                 $('#alert').html('Preencher os valores.');
                 $('#alert').addClass("alert-danger");
                 return false;               
                 }
                  $('#alert').html('');
-                if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
+                if(student1 > classSize || student2 > classSize || student1 <= 0 || student2 <= 0){
                 $('#alert').html('Valor da carteira não existe');
                 $('#alert').addClass("alert-danger");
                 return false;   
