@@ -1,6 +1,7 @@
 <?php
 include '../menu/menu.php';
 require '../../repository/map_repository.php';
+require '../../repository/connection.php';
 require '../../repository/classRoom_repository.php';
 require  '../../repository/student_repository.php';
 $u = new Map();
@@ -10,233 +11,238 @@ $classStudentFK = $_GET['id_classRoom'];
 ?>
 
 <head>
-    
-
     <link rel="stylesheet" type="text/css" href="../components/style_form.css">
     <link rel="stylesheet" href="../components/style_menu.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 
 <style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-    body {
-        background-color: #f1f5f9;
+/* Formulário  */
+@media (min-width: 2600px) {
+.form-update {
+    top: 70%;
+    left: 60%;
     }
+}
 
-    main h2 {
-        font-size: 26px;
-        color: grey;
+@media (max-width: 2599px) {
+.form-update {
+    /*top: 70%;
+    left: 75%;*/
+    top: 68%;
+    left: 74%;
     }
+}
 
-    @media (min-width: 1200px) {
-        .container-card {
-            background-color: #fff;
-            width: 100%;
-        }
-    }
+.form-update {
+    max-width: 450px;
+    width: 100%;
+    padding: 0 auto;
+    background-color: #fff;
+    position: fixed;
+    margin: 0;
+    border-radius: 5px;
+    border: 6px solid #451d5c;
+}
 
-    .row-card {
-        display: flex;
-        width: 100%;
-        border-radius: 10px;
-    }
+/* Configuração da animação 2600px -> Media  */
+.form-update.open {
+    opacity: 1;
+    transition: 0.3s;
+}
 
-    .row-title {
-        display: flex;
-        margin-top: 60px;
-        margin-bottom: 30px;
-        justify-content: space-between;
-    }
+.form-update.close {
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(2600px);
+}
 
-    .button-action {
-        color: #fff;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 10px 25px;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
+.title-and-button-close {
+    display: flex;
+    justify-content: space-between;
+}
 
-    .save {
-        background-color: #451d5c;
-        /*box-shadow: 1px 2px 15px #2a6e78;*/
-    }
+.form-update h2 {
+    color: #451d5c;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 26px;
+}
 
-    .row-card .card-studants {
-        margin: 20px;
-        max-width: 200px;
-        width: 100%;
-        min-height: 140px;
-        background-color: #fff;
-        box-shadow: 1px 1px 6px #232323;
-        border-radius: 5px;
-    }
+.button-close {
+    margin: 20px 15px;
+}
 
-    .body-titles {
-        width: 100%;
-        height: 100%;
-        /*background-color: blue;*/
-        margin: 0;
-        padding: 0;
-    }
+.button-close button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: pink;
+    color: red;
+    border: none;
+    font-weight: bold;
+}
 
-    #aling-item #fixed {
-        font-size: 16px;
-        font-weight: bold;
-        padding: 10px 0;
-        text-align: center;
-        background-color: #451d5c;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        color: white;
-    }
+.row-update {
+    display: flex;
+    padding: 10px 20px;
+}
 
-    #title {
-        text-align: center;
-        margin: 5px;
-        font-size: 16px;
-        font-weight: bold;
-        font-family: 'Poppins';
-    }
+.input-float input {
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 3px solid #451d5c;
+}
 
-    @media (min-width: 2600px) {
-        .form-update {
-            top: 90%;
-            left: 85%;
-        }
-    }
+.button-float {
+    cursor: pointer;
+    margin-top: 80px;
+    height: 45px;
+    width: 140px;
+    background-color: #451d5c;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-    @media (max-width: 2599px) {
-        .form-update {
-            top: 70%;
-            left: 75%;
-        }
-    }
+.button-float button {
+    margin-top: 8px;
+    font-size: 18px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
 
-    .form-update {
-        max-width: 450px;
-        width: 100%;
-        padding: 0 auto;
-        background-color: #fff;
-        position: fixed;
-        margin: 0;
-        border-radius: 5px;
-        border: 6px solid #451d5c;
-    }
+.button-open {
+    height: 0;
+    width: 0;
+}
 
-    /* Cponfiguração da animação 2600px -> Media  */
-    .form-update.open {
-        opacity: 1;
-        transition: 0.3s;
-    }
+.button-open i {
+    height: 0;
+    width: 0;
+    color: transparent;
+}
 
-    .form-update.close {
-        opacity: 0;
-        transition: 1s;
-        transform: translateX(2600px);
-    }
+.button-open.active {
+    transition: 0.4s;
+    top: 85%;
+    left: 90%;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    background-color: #451d5c;
+    border-radius: 50%;
+}
 
-    .title-and-button-close {
-        display: flex;
-        justify-content: space-between;
-    }
+.button-open.active i {
+    transition: 0.2s;
+    color: white;
+    margin: 14.5px;
+    font-size: 20px;
+}
 
-    .form-update h2 {
-        color: #451d5c;
-        padding-left: 15px;
-        padding-top: 15px;
-        font-size: 26px;
-    }
+/*  Fim do form */
 
-    .button-close {
-        margin: 20px 15px;
-    }
+.content-room{
+    /*width: 2200px;*/
+    padding-bottom: 40px;
+    margin-top: 50px;
+    /*margin-left: 240px;*/
+    left: 0;
+    overflow-x: scroll;
+}
+.title h2{
+    font-size: 26px;
+    color: grey;
+    font-family: 'Poppins';
+}
+.spacer-room{
+    margin: 0 35px 5px 35px;
+}
+.card-room{
+    /*width: 100%;*/
+    padding-bottom: 20px;
+}
+.row-card {
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+}
+.card-studants{
+    margin: 10px 15px;
+    min-width: 129.9px;
+    max-width: 130px;
+    min-height: 140px;
+    padding-bottom: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 6px #232323;
+    border-radius: 5px;
+}
+.body-titles {
+    width: 100%;
+    height: 100%;
+    /*background-color: blue;*/
+    margin: 0;
+    padding: 0;
+}
+#aling-item #fixed {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+    background-color: #451d5c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
 
-    .button-close button {
-        cursor: pointer;
-        padding: 10px 15px;
-        border-radius: 50%;
-        background-color: pink;
-        color: red;
-        border: none;
-        font-weight: bold;
-    }
+#title {
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
 
-    .row-update {
-        display: flex;
-        padding: 10px 20px;
-    }
+.button-action {
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin: 35px 0 0 10px;
+    font-size: 16px;
+    padding: 7.5px 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
 
-    .input-float input {
-        padding: 10px 10px;
-        margin-bottom: 20px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 3px solid #451d5c;
-    }
+.save {
+    background-color: #451d5c;
+    /*box-shadow: 1px 2px 15px #2a6e78;*/
+}
 
-    .button-float {
-        cursor: pointer;
-        margin-top: 80px;
-        height: 45px;
-        width: 140px;
-        background-color: #451d5c;
-        color: white;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-    }
 
-    .button-float button {
-        margin-top: 8px;
-        font-size: 18px;
-        color: white;
-        background-color: transparent;
-        border: none;
-    }
-
-    .button-open {
-        height: 0;
-        width: 0;
-    }
-
-    .button-open i {
-        height: 0;
-        width: 0;
-        color: transparent;
-    }
-
-    .button-open.active {
-        transition: 0.4s;
-        top: 85%;
-        left: 90%;
-        position: fixed;
-        height: 50px;
-        width: 50px;
-        background-color: #451d5c;
-        border-radius: 50%;
-    }
-
-    .button-open.active i {
-        transition: 0.2s;
-        color: white;
-        margin: 14.5px;
-        font-size: 20px;
-    }
 </style>
 
+<header>
+    <div class="search-wrapper title">
+        <h2 style="font-size: 22px;">Gerar mapeamento</h2>
+    </div>
+</header>
+
 <body>
-    <div class="main-content">
-    <header>
-        <div class="search-wrapper title">
-            <h2 style="font-size: 24px;">Gerar mapeamento</h2>
-        </div>
-    </header>
-        <main>
-        <div class="body">
-            <div class="container-card">
-                <?php
+<div class="main-content">
+<div>
+<div class="content-room">
+    <div class="spacer-room">
+        <div class="card-room">
+            <?php
                 $sql = $s->toStringStudent($classStudentFK);
                 if ($sql->rowCount() > 0) {
                     $sql = $g->toStringClass($classStudentFK);
@@ -244,8 +250,11 @@ $classStudentFK = $_GET['id_classRoom'];
                     $map = $u->getMap($classStudentFK);
                     $string = $u->implodeArray($map);
                     $c = 1; ?>
-                    <div class="form-update">
-                        <div class="title-and-button-close">
+
+                <!-- Troca de carteiras -->
+
+                <div class="form-update">
+                    <div class="title-and-button-close">
                             <h2>Troca de carteiras</h2>
                             <div class="button-close">
                                 <button>X</button>
@@ -263,19 +272,23 @@ $classStudentFK = $_GET['id_classRoom'];
                                 </div>
                                 <p id="alert">
                                 <div class="button-float">
-                                    <button class="button-update" value="Enviar" id="submit"> Enviar</button>
+                                    <button class="button-update" value="Enviar" id="submit">Enviar</button>
                                 </div>
                             </div>
-                                </div>
                         </form>
-                   
+                    </div>
+
+                <!-- Botão da volta do formulário -->
+
                     <div class="button-open">
                         <buton>
                             <i class="fas fa-sync-alt"></i>
                         </buton>
                     </div>
-                    </div>
-                    <?php
+
+                <!-- Card de estudantes -->
+
+                <?php
                     for ($i = 1; $i <= $class['chairLength']; $i++) {
                         echo '<div class="row-card">';
                         for ($j = 1; $j <= $class['classSize']; $j++) {
@@ -295,7 +308,7 @@ $classStudentFK = $_GET['id_classRoom'];
                             }
                         }
                     } ?>
-            </div>
+
                     <form action="../../models/map_models.php" method="POST">
                         <input type="hidden" name="function" value="cadastrar">
                         <input type="hidden" name="id_class" value="<?php echo $classStudentFK ?>">
@@ -303,22 +316,18 @@ $classStudentFK = $_GET['id_classRoom'];
                         <div>
                             <input type="submit" class="button-action save" >
                         </div>
-
                     </form>
-                </div>
-        <?php
+
+                    <?php
                 } else {
                     echo "<tr><td colspan='5'><center>Nenhuma aluno cadastrado.</center></td></tr>";
                 }
         ?>
+        </div>
     </div>
-    </main>
-    </div>
-
- 
-
-</body>
-
+</div>
+</div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
@@ -337,25 +346,25 @@ $classStudentFK = $_GET['id_classRoom'];
 
         $(document).ready(function() {
             $('#submit').click(function() {
-                var student1 = Number(document.getElementById("student1").value);
-                var student2 = Number(document.getElementById("student2").value);
-                var classSize = Number(document.getElementById("classSize").value);
-              var student11 = $('#student1').val();
-              var student22 = $('#student2').val(); 
-        
+                var student1 = parseFloat(document.getElementById("student1").value);
+                var student2 = parseFloat(document.getElementById("student2").value);
+                var classSize =parseFloat(document.getElementById("classSize").value);
+
                 $('#alert').html('');
-                if(student11 == '' || student22 == ''){
+                if(student1 == '' || student2 == ''){
                 $('#alert').html('Preencher os valores.');
-				$('#alert').addClass("alert-danger");
-				return false;				
+                $('#alert').addClass("alert-danger");
+                return false;               
                 }
                  $('#alert').html('');
-                if(student1 > classSize || student2 > classSize || student1 <= 0 || student2 <= 0){
+                if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
                 $('#alert').html('Valor da carteira não existe');
-				$('#alert').addClass("alert-danger");
-				return false;	
+                $('#alert').addClass("alert-danger");
+                return false;   
                 } 
                 $('#alert').html('');
             })
         });
-    </script>
+</script>
+
+</body>
