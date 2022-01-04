@@ -229,6 +229,49 @@ $map = $u->explodeString($string);
     background-color: #451d5c;
     /*box-shadow: 1px 2px 15px #2a6e78;*/
 }
+.message-error{
+    display:none;
+}
+.message-error.active{
+    border: 1px solid #f54563;
+    position: fixed;
+    top: 90px;
+    margin:  0 10px;
+    background-color: pink;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display:  flex;
+    animation: closeMenssage 0.5s;
+}
+#alert.alert-danger{
+    color:  red;
+    font-family: 'Poppins';
+    font-size: 18px;
+    height:  100%;
+    padding:15px  80px;
+}
+.btn-close{
+    padding:  15px 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #f60c49;
+    border: none;
+    cursor: pointer;
+}
+.btn-close i{
+    font-size: 25px;
+    color: white;
+}
+@keyframes closeMenssage{
+    from{
+        transform: translateX(-1000px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
 </style>
 
 <body>
@@ -244,6 +287,10 @@ $map = $u->explodeString($string);
 <div class="content-room">
     <div class="spacer-room">
         <div class="card-room">
+            <div class="message-error">
+                <p id="alert"></p>
+                <button class="btn-close"><i class="far fa-times-circle"></i></button>
+            </div>
             <div class="form-update">
                 <?php
                 if (isset($map) && !empty($map)) {
@@ -324,8 +371,8 @@ $map = $u->explodeString($string);
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script> 
-    $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
             $('.button-close').click(function() {
                 $('.form-update').addClass('close');
                 $('.button-open').addClass('active')
@@ -338,7 +385,8 @@ $map = $u->explodeString($string);
                 $('.button-open').removeClass('active');
             });
         });
- $(document).ready(function() {
+
+        $(document).ready(function() {
             $('#submit').click(function() {
                 var student1 = parseFloat(document.getElementById("student1").value);
                 var student2 = parseFloat(document.getElementById("student2").value);
@@ -346,21 +394,27 @@ $map = $u->explodeString($string);
                 var student11 = $('#student1').val();
                 var student22 = $('#student2').val();
                 $('#alert').html('');
-                if(student11 == '' || student22 == '' ){
-                $('#alert').html('Preencher os campos.');
+                if(student11 == '' || student22 == ''){
+                $('#alert').html('Preencher os valores.');
                 $('#alert').addClass("alert-danger");
+                $('.message-error').addClass("active");
+                    $('.active').click(function() {
+                        $('.message-error').removeClass("active");
+                    });
                 return false;               
                 }
-                $('#alert').html('');
-                if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
-                $('#alert').html('Carteira não existe');
+                 $('#alert').html('');
+                if(student1 > classSize || student2 > classSize || student1 <= 0 || student2 <= 0){
+                $('#alert').html('Valor da carteira não existe');
                 $('#alert').addClass("alert-danger");
+                $('.message-error').addClass("active");
+                    $('.active').click(function() {
+                        $('.message-error').removeClass("active");
+                    });
                 return false;   
-                }
+                } 
                 $('#alert').html('');
-
             })
         });
-
 </script>
 </body>

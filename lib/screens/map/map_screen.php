@@ -225,7 +225,49 @@ $classStudentFK = $_GET['id_classRoom'];
     background-color: #451d5c;
     /*box-shadow: 1px 2px 15px #2a6e78;*/
 }
-
+.message-error{
+    display:none;
+}
+.message-error.active{
+    border: 1px solid #f54563;
+    position: fixed;
+    top: 90px;
+    margin:  0 10px;
+    background-color: pink;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display:  flex;
+    animation: closeMenssage 0.5s;
+}
+#alert.alert-danger{
+    color:  red;
+    font-family: 'Poppins';
+    font-size: 18px;
+    height:  100%;
+    padding:15px  80px;
+}
+.btn-close{
+    padding:  15px 20px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #f60c49;
+    border: none;
+    cursor: pointer;
+}
+.btn-close i{
+    font-size: 25px;
+    color: white;
+}
+@keyframes closeMenssage{
+    from{
+        transform: translateX(-1000px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
 
 </style>
 
@@ -251,6 +293,12 @@ $classStudentFK = $_GET['id_classRoom'];
 
                 <!-- Troca de carteiras -->
 
+
+                <div class="message-error">
+                <p id="alert"></p>
+                <button class="btn-close"><i class="far fa-times-circle"></i></button>
+                </div>
+
                 <div class="form-update">
                     <div class="title-and-button-close">
                             <h2>Troca de carteiras</h2>
@@ -268,8 +316,7 @@ $classStudentFK = $_GET['id_classRoom'];
                                     <input type="hidden" name="classStudentFK" value='<?php echo $classStudentFK ?>'>
                                     <input type="hidden" name="function" value="change">
                                 </div>
-                                <p id="alert">
-                                <div class="button-float">
+                                    <div class="button-float">
                                     <button class="button-update" value="Enviar" id="submit">Enviar</button>
                                 </div>
                             </div>
@@ -353,12 +400,20 @@ $classStudentFK = $_GET['id_classRoom'];
                 if(student11 == '' || student22 == ''){
                 $('#alert').html('Preencher os valores.');
                 $('#alert').addClass("alert-danger");
+                $('.message-error').addClass("active");
+                    $('.active').click(function() {
+                        $('.message-error').removeClass("active");
+                    });
                 return false;               
                 }
                  $('#alert').html('');
                 if(student1 > classSize || student2 > classSize || student1 <= 0 || student2 <= 0){
                 $('#alert').html('Valor da carteira não existe');
                 $('#alert').addClass("alert-danger");
+                $('.message-error').addClass("active");
+                    $('.active').click(function() {
+                        $('.message-error').removeClass("active");
+                    });
                 return false;   
                 } 
                 $('#alert').html('');
