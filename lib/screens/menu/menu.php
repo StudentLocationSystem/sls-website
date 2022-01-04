@@ -42,6 +42,12 @@ include '../../models/verification.php';
                     <span>Salas</span>
                 </li>
                 </a>
+                <a href="../forms/user_update.php">
+                <li>     
+                    <i class="fas fa-user"></i>
+                    <span>Conta</span>
+                </li>
+                </a>
                
                 <a href="../../models/logout.php">
                 <li>

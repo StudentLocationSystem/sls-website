@@ -20,5 +20,7 @@ if( isset($_POST['pass'])
   $password = addslashes($_POST['password']);
   if($function == 'cadastrar'){
     $u -> createUser($user, $password, $email);
+  }else if ($function == 'change'){
+    $u -> updateUser($user, $password, $email, $_SESSION['id_userLogged']);
   }
 }

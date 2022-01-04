@@ -69,22 +69,26 @@ class User{
         public function logout($id_user){
             unset($_SESSION['id_userLogged']);
         }
-    public function updateUser($user, $pass, $email, $id_user){
+    public function updateUser($user, $pass, $email, $id){
         global $pdo;
         $passCrip = md5($pass);
         $sql = $pdo-> prepare("UPDATE user SET user = '$user', pass = '$passCrip', email = '$email' 
-        WHERE id = :id_user");
-        $sql -> bindValue('id', $id_user);
+        WHERE id = :id");
+        $sql -> bindValue('id', $id);
         $sql-> execute();
 
-        }
-    public function deleteUser($id_user){
-        global $pdo;
-        $sql = $pdo-> prepare("DELETE FROM user WHERE id = :id_user");
-        $sql -> bindValue('id', $id_user);
-        $sql -> execute();
-    }
+        echo  "<script language='javascript' type='text/javascript'>
+        alert('Dados Atualziados'); window.location.href='../screens/forms/user_update.php';</script>";
 
+        }
+    public function stringUser($id){
+        global $pdo;
+        $sql = $pdo-> prepare("SELECT * FROM user WHERE id = :id");
+        $sql -> bindValue('id', $id);
+        $sql -> execute();
+
+        return $sql;
+    }
  
     
 }
