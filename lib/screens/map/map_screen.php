@@ -230,14 +230,13 @@ $classStudentFK = $_GET['id_classRoom'];
 
 </style>
 
+<body>
+<div class="main-content">
 <header>
     <div class="search-wrapper title">
         <h2 style="font-size: 22px;">Gerar mapeamento</h2>
     </div>
 </header>
-
-<body>
-<div class="main-content">
 <div>
 <div class="content-room">
     <div class="spacer-room">

@@ -20,210 +20,231 @@ $map = $u->explodeString($string);
 </head>
 
 <style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-    body {
-        background-color: #f1f5f9;
+/* Formulário  */
+@media (min-width: 2600px) {
+.form-update {
+    top: 70%;
+    left: 60%;
     }
+}
 
-    main h2 {
-        font-size: 36px;
+@media (max-width: 2599px) {
+.form-update {
+    /*top: 70%;
+    left: 75%;*/
+    top: 68%;
+    left: 74%;
     }
+}
 
-    .container-card {
-        background-color: #fff;
+.form-update {
+    max-width: 450px;
+    width: 100%;
+    padding: 0 auto;
+    background-color: #fff;
+    position: fixed;
+    margin: 0;
+    border-radius: 5px;
+    border: 6px solid #451d5c;
+}
 
-    }
+/* Configuração da animação 2600px -> Media  */
+.form-update.open {
+    opacity: 1;
+    transition: 0.3s;
+}
 
-    .row-card {
-        display: flex;
-        width: 100%;
-        border-radius: 10px;
-    }
+.form-update.close {
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(2600px);
+}
 
+.title-and-button-close {
+    display: flex;
+    justify-content: space-between;
+}
 
-    .row-title {
-        display: flex;
-        margin-top: 60px;
-        margin-bottom: 30px;
-        justify-content: space-between;
-    }
+.form-update h2 {
+    color: #451d5c;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 26px;
+}
 
-    .button-action {
-        color: #fff;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 20px 45px;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
+.button-close {
+    margin: 20px 15px;
+}
 
-    .save {
-        background-color: #451d5c;
-        /*box-shadow: 1px 2px 15px #2a6e78;*/
-    }
+.button-close button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: pink;
+    color: red;
+    border: none;
+    font-weight: bold;
+}
 
-    .row-card .card-studants {
-        margin: 20px;
-        width: 200px;
-        min-height: 140px;
-        background-color: #fff;
-        box-shadow: 1px 1px 6px #232323;
-        border-radius: 5px;
-    }
+.row-update {
+    display: flex;
+    padding: 10px 20px;
+}
 
-    .body-titles {
-        width: 100%;
-        height: 100%;
-        /*background-color: blue;*/
-        margin: 0;
-        padding: 0;
-    }
+.input-float input {
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 3px solid #451d5c;
+}
 
-    #aling-item #fixed {
-        font-size: 16px;
-        font-weight: bold;
-        padding: 10px 0;
-        text-align: center;
-        background-color: #451d5c;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        color: white;
-    }
+.button-float {
+    cursor: pointer;
+    margin-top: 80px;
+    height: 45px;
+    width: 140px;
+    background-color: #451d5c;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-    #title {
-        text-align: center;
-        margin: 5px;
-        font-size: 16px;
-        font-weight: bold;
-        font-family: 'Poppins';
-    }
+.button-float button {
+    margin-top: 8px;
+    font-size: 18px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
 
-    @media (min-width: 2600px) {
-        .form-update {
-            top: 70%;
-            left: 70%;
-        }
-    }
+.button-open {
+    height: 0;
+    width: 0;
+}
 
-    @media (max-width: 2599px) {
-        .form-update {
-            top: 60%;
-            left: 68%;
-        }
-    }
+.button-open i {
+    height: 0;
+    width: 0;
+    color: transparent;
+}
 
-    .form-upade {
-        max-width: 450px;
-        width: 100%;
-        padding: 0 20px;
-        background-color: #fff;
-        position: fixed;
-        top: 70%;
-        left: 70%;
-        margin: 0;
-        border-radius: 5px;
-        border: 8px solid #451d5c;
-    }
+.button-open.active {
+    transition: 0.4s;
+    top: 85%;
+    left: 90%;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    background-color: #451d5c;
+    border-radius: 50%;
+}
 
-    .title-and-button-close {
-        display: flex;
-        justify-content: space-between;
-    }
+.button-open.active i {
+    transition: 0.2s;
+    color: white;
+    margin: 14.5px;
+    font-size: 20px;
+}
 
-    .form-upade h2 {
-        color: #451d5c;
-        padding-left: 15px;
-        padding-top: 15px;
-        font-size: 26px;
-    }
+/*  Fim do form */
 
-    .button-close {
-        margin: 20px 5px;
-    }
+.content-room{
+    /*width: 2200px;*/
+    padding-bottom: 40px;
+    margin-top: 100px;
+    /*margin-left: 240px;*/
+    left: 0;
+    overflow-x: scroll;
+}
+.title h2{
+    font-size: 26px;
+    color: grey;
+    font-family: 'Poppins';
+}
+.spacer-room{
+    margin: 0 35px 5px 35px;
+}
+.card-room{
+    /*width: 100%;*/
+    padding-bottom: 20px;
+}
+.row-card {
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+}
+.card-studants{
+    margin: 10px 15px;
+    min-width: 129.9px;
+    max-width: 130px;
+    min-height: 140px;
+    padding-bottom: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 6px #232323;
+    border-radius: 5px;
+}
+.body-titles {
+    width: 100%;
+    height: 100%;
+    /*background-color: blue;*/
+    margin: 0;
+    padding: 0;
+}
+#aling-item #fixed {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+    background-color: #451d5c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
 
-    .button-close button {
-        padding: 10px 15px;
-        border-radius: 50%;
-        background-color: pink;
-        color: red;
-        border: none;
-        font-weight: bold;
-    }
+#title {
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
 
-    .row-update {
-        display: flex;
-        padding: 10px 20px;
-    }
+.button-action {
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin: 35px 0 0 10px;
+    font-size: 16px;
+    padding: 7.5px 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
 
-    .input-float input {
-        padding: 10px 10px;
-        margin-bottom: 20px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 3px solid #451d5c;
-    }
-
-    .button-float {
-        cursor: pointer;
-        margin-top: 80px;
-        height: 45px;
-        width: 140px;
-        background-color: #451d5c;
-        color: white;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .button-float button {
-        margin-top: 8px;
-        font-size: 18px;
-        color: white;
-        background-color: transparent;
-        border: none;
-    }
-    .button-open {
-        height: 0;
-        width: 0;
-    }
-
-    .button-open i {
-        height: 0;
-        width: 0;
-        color: transparent;
-    }
-
-    .button-open.active {
-        transition: 0.4s;
-        top: 85%;
-        left: 90%;
-        position: fixed;
-        height: 50px;
-        width: 50px;
-        background-color: #451d5c;
-        border-radius: 50%;
-    }
-
-    .button-open.active i {
-        transition: 0.2s;
-        color: white;
-        margin: 14.5px;
-        font-size: 20px;
-    }
+.save {
+    background-color: #451d5c;
+    /*box-shadow: 1px 2px 15px #2a6e78;*/
+}
 </style>
 
 <body>
-    <div class="main-content">
+
+
+<div class="main-content">
     <header>
         <div class="search-wrapper title">
             <h2 style="font-size: 24px;">Atualizar dados do mapeamento</h2>
         </div>
     </header>
-        <main>
-        <div class="body">
-            <div class="container-card">
-                <div class="form-update">
+<div>
+<div class="content-room">
+    <div class="spacer-room">
+        <div class="card-room">
+            <div class="form-update">
                 <?php
                 if (isset($map) && !empty($map)) {
                     $sql = $g->toStringClass($classStudentFK);
@@ -251,14 +272,13 @@ $map = $u->explodeString($string);
                                 <button class="button-update" value="Enviar" id="submit"> Enviar</button>
                             </div>
                         </div>
-                </div>
                 </form>
+                </div>
                 <div class="button-open">
                         <buton>
                             <i class="fas fa-sync-alt"></i>
                         </buton>
                     </div>
-                </div>
                     <?php
                     for ($i = 1; $i <= $class['chairLength']; $i++) {
                         echo '<div class="row-card">';
@@ -282,6 +302,7 @@ $map = $u->explodeString($string);
                             }
                         }
                     } ?>
+
                     <form action="../../models/map_models.php" method="POST">
                         <input type="hidden" name="function" value="cadastrar">
                         <input type="hidden" name="id_class" value="<?php echo $classStudentFK ?>">
@@ -291,18 +312,17 @@ $map = $u->explodeString($string);
                         </div>
 
                     </form>
-            </div>
-            
-        <?php
+                    <?php
                 } else {
                     echo "<tr><td colspan='5'><center>Nenhuma aluno cadastrado.</center></td></tr>";
                 }
         ?>
-        </div>
-        </main>
-    </div>
 
-</body>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script> 
     $(document).ready(function() {
@@ -327,14 +347,14 @@ $map = $u->explodeString($string);
                 $('#alert').html('');
                 if(student1 == '' || student2 == '' ){
                 $('#alert').html('Preencher os campos.'+student1);
-				$('#alert').addClass("alert-danger");
-				return false;				
+                $('#alert').addClass("alert-danger");
+                return false;               
                 }
                 $('#alert').html('');
                 if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
                 $('#alert').html('Preencher o nome.'+vf+classSize);
-				$('#alert').addClass("alert-danger");
-				return false;	
+                $('#alert').addClass("alert-danger");
+                return false;   
                 }
                 $('#alert').html('');
 
@@ -342,3 +362,4 @@ $map = $u->explodeString($string);
         });
 
 </script>
+</body>
