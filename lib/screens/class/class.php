@@ -66,26 +66,28 @@ $u = new Student();
             <a href='students_table.php?id_classRoom=".$row['id']."'>
             <div class='sala'>
             
-            <div class='card bg-c-blue order-card' style='background-color: white; box-shadow: 0px 1px 3px #232323;'>
+            <div class='card bg-c-blue order-card' style='background-color: #451d5c; box-shadow: 0px 2px 6px #451d5c;'>
                 
                 <div class='card-room' style='padding: 5px 0 15px 0;'>
                     <div style='display: flex; justify-content: space-between;' >
                     <div style='display: block;'>
-                    <h1 style='padding: 0 20px; font-size: 40px; color: grey;'  title='" . $row['class'] . "'>" . $row['class'] . "</h1>
-                    <p style='padding: 0 20px; font-size: 18px; font-weight: normal; color: #999;'  title='" . $row['class'] . "'>". $countStudents . "</p>
+                    <h1 style='padding: 0 20px; font-size: 40px; color: white;'  title='" . $row['class'] . "'>" . $row['class'] . "</h1>
+                    <p style='padding: 0 20px; font-size: 18px; font-weight: normal; color: #999;'  title='" . $row['class'] . "'>". $countStudents . " alunos</p>
                     </div>
                     <div >
-                        <h1 style='padding: 0px 20px; font-size: 60px; color: grey;'  title='" . $row['class'] . "'>" . $row['chairWidth'] . "x" . $row['chairLength'] . "</h1>
+                        <h1 style='padding: 0px 20px; font-size: 60px; color: white;'  title='" . $row['class'] . "'>" . $row['chairWidth'] . "x" . $row['chairLength'] . "</h1>
                     </div>
                     </div>
 
                     <div style='padding: 30px 20px 0 20px;'>
-                    <a href='../forms/student_form.php?id_classRoom=" . $row['id'] . "'>
-                    <div class='tooltip' style='padding: 8px 8px; border: 2px solid #0c8f8f;'>
-                        <div class='item-action'><i class='fas fa-user-plus' style='color: #0c8f8f; font-size: 20px;'></i></div>
+
+                    <a class='button-card' href='../forms/student_form.php?id_classRoom=" . $row['id'] . "'>
+                    <div class='tooltip' style='padding: 7px 6px; border: 2px solid #0c8f8f; font-size: 15px;'>
+                        <div class='item-action'><i class='fas fa-user-plus' style='color: #0c8f8f;'></i></div>
                         <span class='tooltiptext'>Cadastrar Aluno</span>
                     </div>
                     </a>
+
                     <a class='button-card' href='../map/map_screen.php?id_classRoom=".$row['id']."'>
                     <div class='tooltip' style='padding: 7px 7px; border: 2px solid #a3e3b1; font-size: 15px;'>
                         <div class='item-action'><i class='fas fa-map' style='color: #a3e3b1;'></i></div>
@@ -93,7 +95,7 @@ $u = new Student();
                     </div>
                     </a>
                     <a class='button-card' href='../forms/classRoom_update_form.php?id_classRoom=" . $row['id'] . "'>
-                    <div class='tooltip' style='padding: 7px 7px; border: 2px solid #ffc018; font-size: 15px;'>
+                    <div class='tooltip' style='padding: 7px 8px; border: 2px solid #ffc018; font-size: 15px;'>
                         <div class='item-action'><i class='fas fa-pen' style='color: #ffc018;'></i></div>
                         <span class='tooltiptext'>Editar</span>
                     </div>
