@@ -343,16 +343,17 @@ $map = $u->explodeString($string);
                 var student1 = parseFloat(document.getElementById("student1").value);
                 var student2 = parseFloat(document.getElementById("student2").value);
                 var classSize =parseFloat(document.getElementById("classSize").value);
-
+                var student11 = $('#student1').val();
+                var student22 = $('#student2').val();
                 $('#alert').html('');
-                if(student1 == '' || student2 == '' ){
-                $('#alert').html('Preencher os campos.'+student1);
+                if(student11 == '' || student22 == '' ){
+                $('#alert').html('Preencher os campos.');
                 $('#alert').addClass("alert-danger");
                 return false;               
                 }
                 $('#alert').html('');
                 if(student1 > classSize || student2 > classSize || student1 < 0 || student2 < 0){
-                $('#alert').html('Preencher o nome.'+vf+classSize);
+                $('#alert').html('Carteira não existe');
                 $('#alert').addClass("alert-danger");
                 return false;   
                 }
