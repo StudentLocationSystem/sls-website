@@ -15,6 +15,8 @@ $u = new Student();
 </head>
 
 <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
     .tooltip{
         border-radius: 50%; 
         margin-right: 6px;
@@ -23,20 +25,16 @@ $u = new Student();
         height: 100%;
         width: 100%;
     }
-    .floatingButton h1 i{
-        padding:  0;
+    .button-action{
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        margin-right: 10px;
     }
-    .floatingButton{
-        position: fixed;
-        top: 90.5%;
-        left: 85.5%;
+    .redirect{
         background-color: #451d5c;
-        padding: 8px 30px 8px 10px;
-        border-radius: 30px;
-        box-shadow: 2px 3px 12px #232323;
-    }
-    .floatingButton a{
-        color:  white;
     }
 </style>
 
@@ -47,6 +45,7 @@ $u = new Student();
         <div class="search-wrapper title">
             <h2 style="font-size: 24px;">Salas</h2>
         </div>
+        <a class="button-action redirect" href='../forms/classRoom_form.php'>Nova sala</a>  
     </header>
 <main>
         <div class="container">
@@ -119,13 +118,13 @@ $u = new Student();
 
             </div>
         </div>
-        <div class="floatingButton">
+        <div>
+        <!-- <div class="floatingButton">
                 <a href='../forms/classRoom_form.php'>
-                <h1 class="m-b-20"><i class="fas fa-plus" style="font-size: 25px;"></i> Nova sala
+                <h1 class="m-b-20"><i class="fas fa-plus" style="font-size: 20px;"></i> Nova sala
                 </h1>
-            </a>
-            
-        </div>
+            </a>  
+        </div> -->
             </main>
     </div>
 </body>

@@ -151,7 +151,7 @@ $classStudentFK = $_GET['id_classRoom'];
 .content-room{
     /*width: 2200px;*/
     padding-bottom: 40px;
-    margin-top: 50px;
+    margin-top: 100px;
     /*margin-left: 240px;*/
     left: 0;
     overflow-x: scroll;

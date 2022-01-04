@@ -30,21 +30,8 @@ body{
   width: 660px;
   max-width:100%;
   margin: 0;
-  background-color: blueviolet;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-}
-.card h2{
-  margin: 180px 0 0 0;
-  font-size: 38px;
-  color:  white;
-  text-align: center;
-}
-.card p{
-  font-size: 14px;
-  color: #b7a6b0;
-  text-align: justify;
-  padding: 10px 20px;
 }
 .row .wrapper-page{
   margin: auto;

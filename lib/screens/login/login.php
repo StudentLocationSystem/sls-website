@@ -16,14 +16,12 @@ if (isset($_SESSION['id_userLogged'])) {
   <title>Página de Login - Projeto Social</title>
 </head>
 
-<body>
+<body style="background-color: #f8ecff;">
   <div class="body">
     <div class="container">
       <div class="row">
-        <div class="card">
-          <h2>Lorem ipsum</h2>
-          <p>A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real. <span>Cadastrar</span></p>
-
+        <div class="card" style="background-color: #451d5c;">
+          <img src="../../img/banner_login.png" style="height: 94%; width: 94%; margin: 30px 3%;" />
         </div>
         <div class="wrapper-page">
           <h2>Login</h2>

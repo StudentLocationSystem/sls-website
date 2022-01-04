@@ -22,7 +22,7 @@ include '../../models/verification.php';
         <div class="sidebar-header">
             <h3 class="brand">  
                 <a href="#">
-                    <img src="../../assets/image/sls_logo.png" width="50px" style="margin-top: 10px;">
+                    <img src="../../img/SLS.png" width="45px" style="margin-top: 25px;">
                 </a>
             </h3> 
             <label for="sidebar-toggle" class="ti-menu-alt" style="cursor: pointer;"></label>

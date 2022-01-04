@@ -13,13 +13,10 @@
   <div class="body">
     <div class="container">
       <div class="row">
-        <div class="card">
-          <h2>Lorem ipsum</h2>
-          <p>A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real. <span>Cadastrar</span></p>
-
+        <div class="card" style="background-color: #451d5c;">
+          <img src="../../img/banner_login.png" style="height: 94%; width: 94%; margin: 30px 3%;" />
         </div>
-        <div class="wrapper-page">
-          <h2>Registre-se</h2>
+        <div class="wrapper-page" style="transform: translateY(-50px);">
           <form action="../../models/user_sign_models.php" id="form" method="POST">
             <div class="user-details">
               <div class="input-box-class ">
@@ -39,7 +36,7 @@
                 <label>Cofirmar Senha</label>
                 <input type="password" placeholder="Digite sua senha" name= "confirmPassword" id="cofirmPassword" required>
               </div>
-              <label id="alert"></label>
+              <label id="alert" style="color: red; font-weight: bold;"></label>
             </div>
             <input type="hidden" value="cadastrar" name="function" id="function">
 
