@@ -1,7 +1,7 @@
 <?php
 include '../menu/menu.php';
 $id = $_GET['id_classRoom'];
-$sql = $pdo->prepare("SELECT * FROM classroom WHERE id = :id");
+$sql = $pdo->prepare("SELECT * FROM classRoom WHERE id = :id");
 $sql -> bindValue('id', $id);
 $sql -> execute();
 $row =  $sql->fetch(PDO::FETCH_ASSOC);
@@ -26,15 +26,14 @@ $row =  $sql->fetch(PDO::FETCH_ASSOC);
     <h2>Editar a sala</h2>
     <form action="../../models/classRoom_models.php" method="POST">
       <div class="input-box">
-        <span class="details">Nome da sala</span>
+        <span class="details">Quantidade de Filas</span>
         <input type="char" placeholder="Nome da sala"  name="class" id="class"  required value="<?php echo $row['class'];?>">
       </div>
       <div class="user-details">
       <div class="input-box">
-        <span class="details">Comprimento da sala</span>
+        <span class="details">Carteiras por Fila</span>
         <input type="number" placeholder="Comprimento da sala" name="chairWidth" id="chairWidth"  required  value="<?php echo $row['chairWidth'];?>">
       </div>
-      <br>
       <div class="input-box">
         <span class="details">Largura da Sala</span>
         <input type="number" placeholder="Largura da sala" name="chairLength" id="chairLength"  required  value="<?php echo $row['chairLength'];?>">

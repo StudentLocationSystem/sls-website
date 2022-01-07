@@ -19,21 +19,21 @@ $classStudentFK = $_GET['id_classRoom'];
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 /* Formulário  */
-@media (min-width: 2600px) {
+@media (min-width: 1300px) and (max-width: 1900px) {
 .form-update {
-    top: 70%;
-    left: 60%;
+    top: 57%;
+    left: 65%;
     }
 }
 
-@media (max-width: 2599px) {
-.form-update {
+/*@media (max-width: 2599px) {*/
+/*.form-update {*/
     /*top: 70%;
     left: 75%;*/
-    top: 68%;
-    left: 74%;
-    }
-}
+/*    top: 68%;*/
+/*    left: 74%;*/
+/*    }*/
+/*}*/
 
 .form-update {
     max-width: 450px;
@@ -158,7 +158,6 @@ $classStudentFK = $_GET['id_classRoom'];
 }
 .title h2{
     font-size: 26px;
-    color: grey;
     font-family: 'Poppins';
 }
 .spacer-room{
@@ -208,7 +207,14 @@ $classStudentFK = $_GET['id_classRoom'];
     font-weight: bold;
     font-family: 'Poppins';
 }
-
+.button-refresh{
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
 .button-action {
     outline: none;
     border: none;
@@ -216,11 +222,10 @@ $classStudentFK = $_GET['id_classRoom'];
     cursor: pointer;
     margin: 35px 0 0 10px;
     font-size: 16px;
-    padding: 7.5px 25px;
+    padding: 12.5px 30px;
     border-radius: 5px;
     margin-right: 10px;
 }
-
 .save {
     background-color: #451d5c;
     /*box-shadow: 1px 2px 15px #2a6e78;*/
@@ -277,6 +282,7 @@ $classStudentFK = $_GET['id_classRoom'];
     <div class="search-wrapper title">
         <h2 style="font-size: 22px;">Gerar mapeamento</h2>
     </div>
+    <a class="button-refresh save" href='map_screen.php?id_classRoom=<?php echo $classStudentFK?>'>Gerar novo Mapeamento</a>  
 </header>
 <div>
 <div class="content-room">

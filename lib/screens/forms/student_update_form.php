@@ -7,7 +7,7 @@ $sql -> bindValue('id', $id);
 $sql -> execute();
 $row = $sql->fetch(PDO::FETCH_ASSOC);
 
-$sql2 = $pdo->prepare("SELECT * FROM classroom");
+$sql2 = $pdo->prepare("SELECT * FROM classRoom");
 $sql2 -> execute();
 
 ?>

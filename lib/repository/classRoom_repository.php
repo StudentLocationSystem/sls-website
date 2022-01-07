@@ -22,6 +22,10 @@ class ClassRoom {
         $sql = $pdo-> prepare("DELETE FROM students WHERE classStudentFK = :classStudentFK");
         $sql -> bindValue('classStudentFK', $classStudentFK);
         $sql -> execute();
+        $classMapFK = $classStudentFK;
+        $sql = $pdo-> prepare("DELETE FROM map WHERE classMapFK = :classMapFK");
+        $sql -> bindValue('classMapFK', $classMapFK);
+        $sql -> execute();
         $id = $classStudentFK;
         $sql = $pdo-> prepare("DELETE FROM classRoom WHERE id = :id");
         $sql -> bindValue('id', $id);

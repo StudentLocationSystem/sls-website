@@ -25,16 +25,16 @@ include '../menu/menu.php';
         <form action="../../models/classRoom_models.php" method="POST">
           <div class="input-box">
             <span class="details">Nome da sala</span>
-            <input type="char" placeholder="Nome da sala" name="class" id="class" required>
+            <input type="char" placeholder="Nome da sala" name="class" id="class" maxLength="6" required>
           </div>
           <div class="user-details">
             <div class="input-box">
-              <span class="details">Comprimento da sala</span>
+              <span class="details">Quantidade de Filas</span>
               <input type="number" placeholder="Comprimento da sala" name="chairWidth" id="chairWidth" required>
             </div>
             <br>
             <div class="input-box">
-              <span class="details">Largura da Sala</span>
+              <span class="details">Carteiras por Fila</span>
               <input type="number" placeholder="Largura da sala" name="chairLength" id="chairLength" required>
             </div>
           </div>

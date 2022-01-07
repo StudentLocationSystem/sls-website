@@ -33,7 +33,7 @@ include '../menu/menu.php';
                         <?php
                         $classStudentFK = $_GET['id_classRoom'];
                         global $pdo;
-                        $sql = $pdo->prepare("SELECT students.id, students.student, students.priority, classroom.class FROM students JOIN classroom ON classroom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK");
+                        $sql = $pdo->prepare("SELECT students.id, students.student, students.priority, classRoom.class FROM students JOIN classRoom ON classRoom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK ORDER BY student ASC");
                         $sql->bindValue('classStudentFK', $classStudentFK);
 
                         $sql->execute();
@@ -47,7 +47,7 @@ include '../menu/menu.php';
                                     <td><?php echo $row['class']; ?></td>
                                     <td>
                                         <a class="button-action edit" href="../forms/student_update_form.php?id_student=<?php echo $row['id'] ?>&id_classRoom=<?php echo $row['class'] ?>">Editar</a>
-                                        <a class="button-action delete" href="../../models/student_models.php?id_student=<?php echo $row['id'] ?>&id_classRoom=<?php echo $classStudentFK ?>">Deletar</a>
+                                        <a class="button-action delete" href="../../models/student_models.php?id_student=<?php echo $row['id'] ?>&id_classRoom=<?php echo $classStudentFK ?>&v=1">Deletar</a>
                                     </td>
                                 </tr>
                         <?php }

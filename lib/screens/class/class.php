@@ -53,7 +53,7 @@ $u = new Student();
                 <?php
                 global $pdo;
                 $userFK = $_SESSION['id_userLogged'];
-                $sql = $pdo->prepare("SELECT * FROM classroom WHERE userFK = :userFK");
+                $sql = $pdo->prepare("SELECT * FROM classRoom WHERE userFK = :userFK");
                 $sql->bindValue('userFK', $userFK);
                 $sql->execute();
                 

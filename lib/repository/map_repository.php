@@ -8,7 +8,7 @@ class Map
         $array = array();
         $i = 0;
         $aux = 0;
-        $sql = $pdo->prepare("SELECT students.student FROM students JOIN classroom ON classroom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK AND students.priority = :priority");
+        $sql = $pdo->prepare("SELECT students.student FROM students JOIN classRoom ON classRoom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK AND students.priority = :priority");
         $sql->bindValue('classStudentFK', $classStudentFK);
         $sql->bindValue('priority', $priority);
         $sql->execute();
@@ -60,7 +60,7 @@ class Map
         $countP4 = 0;
         $countP5 = 0;
         $i = 1;
-        $sql = $pdo->prepare("SELECT students.student, classroom.classSize, classroom.chairWidth, classroom.chairLength FROM students JOIN classroom ON classroom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK");
+        $sql = $pdo->prepare("SELECT students.student, classRoom.classSize, classRoom.chairWidth, classRoom.chairLength FROM students JOIN classRoom ON classRoom.id = students.classStudentFK WHERE students.classStudentFK = :classStudentFK");
         $sql->bindValue('classStudentFK', $classStudentFK);
         $sql->execute();
         $array = $sql->fetch(PDO::FETCH_ASSOC);
@@ -70,14 +70,13 @@ class Map
         for ($i = 1; $i <= $classSize; $i++) {
             $arrayClass[$i] = 'vazio';
         }
-        //  echo 'array = ', $array[16];
+
 
         for ($i = 0; $i < $sizeP1; $i++) {
-            //  echo 'I = ',$i;
-            //echo  'Size = ',$sizeP1;
+
             for ($j = 1; $j <= $classSize; $j++) {
                 if ($arrayClass[$j] == 'vazio' && $countP1 < $sizeP1) {
-                    // echo "entrou no J1";
+
                     $arrayClass[$j] = $priority1[$i];
                     $countP1++;
                     break;
@@ -88,16 +87,16 @@ class Map
             $qtdL = $qtdL + $chairWidth;
         }
         for ($i = 0; $i < $sizeP2; $i++) {
-            //echo $i;
+
             for ($j = 1; $j <= $classSize; $j++) {
                 if ($j % $chairWidth == 0 && $arrayClass[$j] == 'vazio' && $countP2 < $sizeP2) {
-                    //echo "entrou";
+
                     $arrayClass[$j] = $priority2[$i];
                     $countP2++;
                     break;
                 }
                 if ($j == $qtdL && $arrayClass[$j] == 'vazio' && $countP2 < $sizeP2) {
-                    //echo "entrou";
+
                     $arrayClass[$j] = $priority2[$i];
                     $qtdL = $qtdL + $chairWidth;
                     $countP2++;
@@ -117,7 +116,7 @@ class Map
         }
 
         for ($i = 0; $i < $sizeP3; $i++) {
-            //echo $i;
+
 
             for ($j = 1; $j <= $classSize; $j++) {
                 if ($j % $chairWidth == 0 && $arrayClass[$j] == 'vazio' && $countP3 < $sizeP3) {
@@ -129,7 +128,7 @@ class Map
                 if ($j == $qtdL && $arrayClass[$j] == 'vazio' && $countP3 < $sizeP3) {
 
                     $arrayClass[$j] = $priority3[$i];
-                    //$qtdL = $qtdL + $chairWidth;
+
                     $countP3++;
                     break;
                 }
@@ -154,32 +153,31 @@ class Map
                 break;
             }
         }
-       
+
         for ($i = 0; $i < $sizeP4; $i++) {
-            //echo $i;
+
             for ($j = 1; $j <= $classSize; $j++) {
-                //echo $j;
+
                 if ($j % $chairWidth == 0 && $arrayClass[$j] == 'vazio' && $countP4 < $sizeP4) {
-                   // echo "entrou 1";
-                    
+
+
                     $arrayClass[$j] = $priority4[$i];
                     $countP4++;
                     break;
                 }
                 if ($j == $qtdL && $arrayClass[$j] == 'vazio' && $countP4 < $sizeP4) {
-                    //echo "entrou 2";
+
                     $arrayClass[$j] = $priority4[$i];
-                    //$qtdL = $qtdL + $chairWidth;
+
                     $countP4++;
                     break;
                 }
                 if ($j > $qtdL && $j < ($qtdL + ($chairWidth - 1)) && $countP4 < $sizeP4 && $arrayClass[$j] == 'vazio') {
                     if ($j == $qtdL + $chairWidth - 2) {
-                      //  echo 'entrou 4';
+
                         $qtdL = $qtdL + $chairWidth;
-                        //echo 'Linhas:',$qtdL;
                     }
-                  //  echo 'entrou 3';
+
                     $arrayClass[$j] = $priority4[$i];
                     $countP4++;
                     break;
@@ -210,53 +208,57 @@ class Map
         return $arrayClass;
     }
 
-    public function implodeArray($arrayClass){
-        
+    public function implodeArray($arrayClass)
+    {
+
         $string = implode(', ', $arrayClass);
         return $string;
     }
 
-    public function createMap($map, $userFK, $classMapFK){
+    public function createMap($map, $userFK, $classMapFK)
+    {
         global $pdo;
-        $sql = $pdo-> prepare("INSERT INTO map ( map, userFK, classMapFK)
+        $sql = $pdo->prepare("INSERT INTO map ( map, userFK, classMapFK)
         VALUES ( '$map', '$userFK', '$classMapFK')");
-        $sql -> execute();
+        $sql->execute();
     }
 
-    public function explodeString($string){
+    public function explodeString($string)
+    {
         $arrayClass = explode(', ', $string);
-        $j= 1;
-        for($i = 0; $i < count($arrayClass); $i++){
+        $j = 1;
+        for ($i = 0; $i < count($arrayClass); $i++) {
             $map[$j] = $arrayClass[$i];
             $j++;
         }
         return $map;
     }
 
-    public function toString($userFK){
+    public function toString($userFK)
+    {
         global $pdo;
 
-        $sql = $pdo-> prepare("SELECT map.idMap, classroom.class, map.classMapFK, map.map FROM `map` JOIN `classroom` ON classroom.id = map.classMapFK WHERE map.userFK = :userFk");
-        $sql -> bindValue('userFk', $userFK);
-        $sql -> execute();
+        $sql = $pdo->prepare("SELECT map.idMap, classRoom.class, map.classMapFK, map.map, classRoom.id FROM `map` JOIN `classRoom` ON classRoom.id = map.classMapFK WHERE map.userFK = :userFk");
+        $sql->bindValue('userFk', $userFK);
+        $sql->execute();
 
         return $sql;
     }
 
-    public function deleteMap($idMap){
+    public function deleteMap($idMap)
+    {
         global $pdo;
-        $sql = $pdo-> prepare("DELETE FROM map WHERE idMap = :idMap");
-        $sql -> bindValue('idMap', $idMap);
-        $sql -> execute();
+        $sql = $pdo->prepare("DELETE FROM map WHERE idMap = :idMap");
+        $sql->bindValue('idMap', $idMap);
+        $sql->execute();
     }
 
-    public function changeStudent($map, $student1, $student2){
+    public function changeStudent($map, $student1, $student2)
+    {
         $aux = $map[$student1];
         $map[$student1] = $map[$student2];
-        $map[$student2]= $aux;
-        
+        $map[$student2] = $aux;
+
         return $map;
     }
-
- 
 }

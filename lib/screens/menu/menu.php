@@ -14,7 +14,14 @@ include '../../models/verification.php';
     <link rel="stylesheet" href="../components/style_header.css">
     <script type="text/javascript" src="../components/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="icon" href="../../img/SLS.png">
 </head>
+<style type="text/css">
+    .img.disable{
+    display: none;
+    }
+</style>
+
 <body>
     
     <input type="checkbox" id="sidebar-toggle">
@@ -22,10 +29,10 @@ include '../../models/verification.php';
         <div class="sidebar-header">
             <h3 class="brand">  
                 <a href="#">
-                    <img src="../../img/SLS.png" width="45px" style="margin-top: 25px;">
+                    <img src="../../img/SLS.png" class="img" width="45px" style="margin-top: 25px;">
                 </a>
             </h3> 
-            <label for="sidebar-toggle" class="ti-menu-alt" style="cursor: pointer;"></label>
+            <label for="sidebar-toggle" id="toggle-img" class="ti-menu-alt" style="cursor: pointer;"></label>
         </div>
         
         <div class="sidebar-menu">
@@ -59,5 +66,11 @@ include '../../models/verification.php';
         </div>
     </div>
     
-    
+    <script>
+        $(document).ready(function() {
+            $('#toggle-img').click(function() {
+                $('.img').toggleClass('disable');
+            });
+        });
+    </script>
    

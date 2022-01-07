@@ -25,11 +25,17 @@ if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['vision'])
 
 
 }else if(isset( $_GET['id_student']) && !empty( $_GET['id_student'])){
+    $v = $_GET['v'];
   $id_classRoom = $_GET['id_classRoom'];
   $id_student = $_GET['id_student'];
   $u -> deleteStudent($id_student);
+  if($v == '1'){
   echo "<script language='javascript' type='text/javascript'>
   alert('Dados Deletados'); window.location.href='../screens/class/students_table.php?id_classRoom=".$id_classRoom."';</script>";
+  }else if($v == '2'){
+      echo "<script language='javascript' type='text/javascript'>
+  alert('Dados Deletados'); window.location.href='../screens/forms/student_form.php?id_classRoom=".$id_classRoom."';</script>";
+  }
 
 }
 

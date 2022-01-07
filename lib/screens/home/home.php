@@ -99,7 +99,9 @@ $countMap = $sql -> rowCount();
                            
                                           
                                             <td>
-                                              <a class="button-action edit" href="map_screen_update.php?classStudentFK=<?php echo $row['classMapFK']?>&map=<?php echo $row['map']?>">Editar</a>
+                                              <a class="button-action edit" href="../map/map_screen_update.php?classStudentFK=<?php echo $row['classMapFK']?>&map=<?php echo $row['map']?>">Editar</a>
+                                              
+                                              <a target="_blank" class="button-action edit" href="../relatory/relatory_creator.php?idMap=<?php echo $row['idMap'];?>&id_classRoom=<?php echo $row['classMapFK']?>"><i class="far fa-eye"></i></a>
                                               <a class="button-action delete" href="../../models/map_models.php?idMap=<?php echo $row['idMap'];?>">Deletar</a>
                                             </td>
 

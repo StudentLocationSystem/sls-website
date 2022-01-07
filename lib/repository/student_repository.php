@@ -20,8 +20,10 @@ class Student{
         $sql -> execute();
         $row = $sql->fetch(PDO::FETCH_ASSOC);
        
+        $classStudentFK = $id;
+        $sqls = $pdo-> prepare("SELECT * FROM students WHERE classStudentFK = :classStudentFK");
+         $sqls -> bindValue('classStudentFK', $classStudentFK);
       
-        $sqls = $pdo-> prepare("SELECT * FROM students");
         $sqls-> execute();
        
         if($sqls -> rowCount() >= $row['classSize']){

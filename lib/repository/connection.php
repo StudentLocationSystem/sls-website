@@ -3,7 +3,7 @@ session_start();
     $localhost = "localhost";
     $user = "root";
     $password = "";
-    $banco = "pj";
+    $banco = "id18224393_projetosocial";
     global $pdo;
 try{
     $pdo = new PDO("mysql:dbname=" .$banco."; host=" .$localhost, $user, $password);

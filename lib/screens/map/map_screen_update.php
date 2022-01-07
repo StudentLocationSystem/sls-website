@@ -23,21 +23,13 @@ $map = $u->explodeString($string);
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 /* Formulário  */
-@media (min-width: 2600px) {
+@media (min-width: 1300px) and (max-width: 1900px) {
 .form-update {
-    top: 70%;
-    left: 60%;
+    top: 57%;
+    left: 65%;
     }
 }
 
-@media (max-width: 2599px) {
-.form-update {
-    /*top: 70%;
-    left: 75%;*/
-    top: 68%;
-    left: 74%;
-    }
-}
 
 .form-update {
     max-width: 450px;
@@ -162,7 +154,6 @@ $map = $u->explodeString($string);
 }
 .title h2{
     font-size: 26px;
-    color: grey;
     font-family: 'Poppins';
 }
 .spacer-room{
@@ -220,7 +211,7 @@ $map = $u->explodeString($string);
     cursor: pointer;
     margin: 35px 0 0 10px;
     font-size: 16px;
-    padding: 7.5px 25px;
+    padding: 12.5px 30px;
     border-radius: 5px;
     margin-right: 10px;
 }
